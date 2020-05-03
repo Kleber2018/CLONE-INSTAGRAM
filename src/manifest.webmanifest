@@ -1,8 +1,8 @@
 {
   "name": "JardimVeneza",
   "short_name": "Jardim Veneza",
-  "theme_color": "#b10425",
-  "background_color": "#b10425",
+  "theme_color": "#177649",
+  "background_color": "#177649",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

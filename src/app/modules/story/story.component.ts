@@ -24,14 +24,23 @@ export class StoryComponent implements OnInit {
   //   'https://i.imgur.com/tXgQukC.jpg',
   //   'https://i.imgur.com/A7BMaSe.jpg'
   // ]
-  public stories = [
-    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fcapa.jpg?alt=media&token=3db69eb4-03e0-4435-891b-16b2dfccbe1a',
-    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolocapa.jpg?alt=media&token=41d768fb-ab9e-435d-bb17-a5aa4554c2ed',
-    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolo1.jpg?alt=media&token=6116f512-03dd-417f-b547-20ee6260f12d',
-    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhoscapa.jpg?alt=media&token=39754100-8b75-47f7-8d96-76ce4613639e',
-    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhos1.jpg?alt=media&token=20a35220-6844-408b-85c6-5ce58840ebcd'
+  // public stories = [
+  //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fcapa.jpg?alt=media&token=3db69eb4-03e0-4435-891b-16b2dfccbe1a',
+  //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolocapa.jpg?alt=media&token=41d768fb-ab9e-435d-bb17-a5aa4554c2ed',
+  //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolo1.jpg?alt=media&token=6116f512-03dd-417f-b547-20ee6260f12d',
+  //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhoscapa.jpg?alt=media&token=39754100-8b75-47f7-8d96-76ce4613639e',
+  //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhos1.jpg?alt=media&token=20a35220-6844-408b-85c6-5ce58840ebcd'
 
-  ] 
+  // ] 
+
+  public stories = [
+    '../../../assets/veneza/capa.jpg',
+    '../../../assets/veneza/bolocapa.jpg',
+    '../../../assets/veneza/bolo1.jpg',
+    '../../../assets/veneza/docinhoscapa.jpg',
+    '../../../assets/veneza/docinhos1.jpg',
+    '../../../assets/veneza/finalcapa.jpg'
+  ]
   public indexAnuncio: number;
   public whatsApp = 'http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza';
 
@@ -48,12 +57,14 @@ export class StoryComponent implements OnInit {
   }
 
   proximoAnuncio(){
-    this.indexAnuncio = this.indexAnuncio + 1;
-    this.imgAnuncio = this.stories[this.indexAnuncio]
-    if(this.stories.length == this.indexAnuncio){
+    if(this.stories.length <= (this.indexAnuncio+1)){
+      console.log('dentro');
       this.indexAnuncio = 0;
+      this.imgAnuncio = this.stories[this.indexAnuncio]
+    } else {
+      this.indexAnuncio = this.indexAnuncio + 1;
+      this.imgAnuncio = this.stories[this.indexAnuncio]
     }
-
   }
 
   escolhendoAnuncio(){

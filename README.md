@@ -21,11 +21,11 @@ Deploy do build no firebase:
         No arquivo .firebasesc alterar para o nome do host,
             "default": "bairrofeliz103"
         Depois de configurado executar o deploy da seguinte maneira:
-             sudo ng build --prod && sudo firebase deploy --only hosting:jardimveneza
+             `sudo ng build --prod && sudo firebase deploy --only hosting:jardimveneza`
 
 # INSTALAÇÃO
 
-Preparando o ambiente de trabalho:
+### Preparando o ambiente de trabalho:
 
 instalar o vscode linux com snap: sudo snap install --classic code
 talvez seja necessário instalar: sudo apt-get install snapd
@@ -57,13 +57,16 @@ Angular CLI
 Atualizar: 
     npm install -g npm
 ou 
-    npm install
+    **UTILIZAR ESSE COMANDO APÓS CLONAR O PROJETO:**
+    `npm install`
 ou
     ng update
     ng update --all --allow-dirty
 
 firebase
     firebase projects:list
+
+
 
 ## FAZER UPGRADE PARA VERSÃO 9 (débito técnico que não vale a pena resolver agora)
 
@@ -93,6 +96,7 @@ atualizar package e bibliote do projeto:
 
 
 ## GENERATE
+    Para criar novas estruturas (eu não gosto de usar, faço na mão)
 
     Criando a estrutura de uma páginas que compõem o projeto
     componentes: ng g c forma-pag-dialog
@@ -103,7 +107,6 @@ atualizar package e bibliote do projeto:
     Guard: ng g g auth
 
 ## APIs
-
   Para input:
   https://www.npmjs.com/package/ngx-material-file-input
    npm i ngx-material-file-input
