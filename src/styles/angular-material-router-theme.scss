@@ -1,0 +1,96 @@
+@import '~@angular/material/theming';
+@include mat-core();
+//Main Drink Public Theme
+$md-primary: (
+  // 50 : #f6e1e5,
+    50 : #ffffff,
+    100 : #e8b4be,
+    200 : #d88292,
+    300 : #c84f66,
+    400 : #bd2a46,
+    500 : #b10425,
+    600 : #aa0321,
+    700 : #a1031b,
+    800 : #980216,
+    900 : #88010d,
+    A100 : #ffb4b7,
+    A200 : #ff8186,
+    A400 : #ff4e55,
+    A700 : #ff353d,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-accent: (
+  50: #fff8e1,
+  100: #ffecb5,
+  200: #ffe083,
+  300: #ffd451,
+  400: #ffca2c,
+  500: #ffc107,
+  600: #ffbb06,
+  700: #ffb305,
+  800: #ffab04,
+  900: #ff9e02,
+  A100: #ffffff,
+  A200: #fffaf2,
+  A400: #ffe4bf,
+  A700: #ffd9a6,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$angular-material-router-app-primary: mat-palette($md-primary);
+$angular-material-router-app-accent: mat-palette($md-accent);
+$angular-material-router-app-warn: mat-palette($mat-red, 500);
+$angular-material-router-app-theme: mat-light-theme(
+  $angular-material-router-app-primary,
+  $angular-material-router-app-accent,
+  $angular-material-router-app-warn
+);
+
+$angular-material-router-app-theme-warn: mat-dark-theme(
+  $angular-material-router-app-primary,
+  $angular-material-router-app-accent,
+  $angular-material-router-app-warn
+);
+
+@mixin mat-grid-mixin($theme) {
+  $primary: map-get(
+    $map: $theme,
+    $key: primary
+  );
+
+  mat-grid-tile {
+    background-color: mat-color($primary, 500);
+    color: mat-contrast($primary, 500);
+  }
+}

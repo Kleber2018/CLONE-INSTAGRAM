@@ -1,0 +1,48 @@
+<section fxLayoutAlign="space-between center" style="width: 100%; padding-left: 10px; padding-right: 15px; margin-top: 10px;">
+  <button mat-button fxLayoutAlign="center" style="font-size: 110%; opacity: 0.7;" [routerLink]="['/home']"><mat-icon>arrow_back</mat-icon>Voltar</button>
+</section>
+
+<body
+    fxLayout="row wrap"
+    fxLayoutAlign="start center">
+  <div fxLayout="column" fxLayoutAlign="start center" class="content">
+    <form  [formGroup]="faleConoscoForm" fxLayoutAlign="center center" fxLayout="column">
+      <p class="txt-sub-titulo" style="margin-block-end: 40px;">Sugestões, reclamações, reportar um erro, trabalhar conosco, ...</p>
+      <mat-form-field class="form-input48">
+        <input  matInput placeholder="Nome"
+          type="text"
+          formControlName="nome">
+      </mat-form-field>
+      <section formGroupName="contato" fxLayout="column" style="width: 100%;" fxLayoutAlign="start center">
+        <mat-form-field class="form-input48">
+          <input  matInput placeholder="Email"
+            type="email"
+            formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="form-input48">
+          <input  matInput placeholder="Telefone"
+            type="text"
+            formControlName="telefone">
+        </mat-form-field>
+      </section>
+
+      <p class="txt-sub-titulo" >Comentário:</p>
+      <mat-form-field floatLabel="never" appearance="outline" class="form-input48" class="form-input-comentario">
+        <textarea matInput placeholder="deixe seu comentário aqui" formControlName="comentario" class="input-comentario"></textarea>
+      </mat-form-field>
+     
+    
+      <div class="form-input48" fxLayoutAlign="center">
+        <button mat-raised-button color="warn" (click)="insertFaleConosco();">Enviar</button>
+      </div>
+      <br><br>
+    
+    </form>
+    <p style="opacity: 0.6; font-size: 70%;">Versão 1.1 beta</p>
+    <br><br>
+  </div>
+</body>
+
+
+

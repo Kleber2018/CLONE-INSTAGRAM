@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'angular-material-router-theme.scss';
+
+.angular-material-router-app-theme {
+  $theme: $angular-material-router-app-theme;
+  @include angular-material-theme($theme);
+  @include mat-grid-mixin($theme);
+}
+
+.angular-material-router-app-theme-warn {
+  $theme: $angular-material-router-app-theme-warn;
+  @include angular-material-theme($theme);
+  @include mat-grid-mixin($theme);
+}
+
+// html {
+//   height: 100%;
+// }
+body {
+  margin: 0;
+  // font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+:focus {
+  outline: none;
+} // Remove browser default;
+
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Nunito', sans-serif;}

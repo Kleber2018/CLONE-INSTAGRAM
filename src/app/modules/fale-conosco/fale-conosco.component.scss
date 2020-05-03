@@ -1,0 +1,107 @@
+body {
+  width: 100%;
+}
+section {
+ padding-top: 60px;
+}
+
+.content {
+  margin-top: 70px;
+  min-height: 680px;
+  width: 100%;
+}
+
+form {
+ width: 100%;
+  max-width: 800px;
+  margin: 15px;
+  font-size: 110%;
+}
+
+.input-comentario{
+  width:500px;
+  height: 100px;
+}
+.form-input-comentario {
+  padding: 0px; 
+  margin: 0px 0px -12px 0px; 
+  width:500px;
+}
+.form-input48 {
+
+  width:500px;
+}
+
+@media screen and (max-width: 599px) {
+  .input-comentario{
+    width: 100%;
+  }
+  .form-input-comentario {
+    width: 100%;
+  }
+  .form-input48 {
+     width: 100%;
+  }
+  form {
+   padding: 15px;
+  }
+
+ .content {
+  margin-top: 70px;
+  min-height: 580px;
+  width: 100%;
+  }
+}
+@media screen and (max-width: 959px) {
+  section {
+    padding-top: 0px;
+  }
+}
+
+
+
+
+.txt-sub-titulo {
+  margin: 0px;
+  margin-top: 10px;
+}
+
+
+.input-comentario {
+  min-height: 65px;
+  margin: 0px;
+  margin-top: -15px !important;
+  margin-block-end: -10px !important;
+  padding: 0px;
+}
+
+
+// escolher cor template
+@import '../../../styles/angular-material-router-theme.scss';
+
+.color-swatch {
+ position: relative;
+ width: 36px;
+ height: 36px;
+ margin: 6px;
+ border-radius: 50%;
+ overflow: hidden;
+}
+
+.color-swatch-primary {
+ background-color: mat-color($angular-material-router-app-primary, 400);
+}
+.color-swatch-primary:hover {
+ background-color: mat-color(
+   $angular-material-router-app-primary,
+   50
+ ) !important;
+}
+.color-swatch-warn {
+ // background-color: mat-color($angular-material-router-app-warn, 700);
+ background-color: black;
+}
+.color-swatch-warn:hover {
+ background-color: black !important;
+}
+

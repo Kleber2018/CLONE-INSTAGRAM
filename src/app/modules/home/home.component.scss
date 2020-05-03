@@ -1,0 +1,127 @@
+main {
+  width: 100%;
+  min-height: calc(100vh - 102px);
+}
+
+.carregando{
+  height: 100%; 
+  width: 100%; 
+  padding-top: 150px; 
+  padding-block-end: 500px;
+}
+p {
+  margin: 0px;
+}
+p, span, mat-card-title,button, mat-card-subtitle {
+  font-family: 'Nunito', sans-serif;
+}
+mat-card:hover {
+    background: rgb(212, 210, 210);
+  }
+
+mat-card {
+  margin: 3px;
+  width: 400px;
+  height: 120px;
+  padding: 10px;
+}
+
+.container-lista {
+  max-width: 1300px;
+}
+
+ #btnpedidoflutu {
+    z-index: 2;
+    position: fixed;
+    bottom:10px;
+    right:50%;
+    left: 50%;
+    margin-block-end: 30px;
+ }
+
+//  #btn-nav-footer {
+//   position: fixed;
+//   bottom: 0px;
+//   width: 100%;
+//   max-width: 600px;
+//   padding: 0px;
+//   margin: 0px;
+//   background-color: white;
+// }
+
+
+
+// celular
+@media screen and (max-width: 599px) {
+
+  
+  .carregando{
+    padding-top: 100px; 
+    padding-block-end: 300px;
+  }
+
+  mat-card {
+    margin: 1px 10px 1px 10px;
+    width: 100%;
+    height: 100px;
+    padding: 0px;
+  }
+
+
+  .container-lista {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 1600px) {
+  main{
+    margin-block-end: 400px;
+  }
+  .carregando{
+    padding-top: 150px; 
+    padding-block-end: 600px;
+  }
+}
+
+
+.img-card-emp {
+  height: 80px;
+  width: 80px;
+}
+
+.img-card-content {
+  height: 100px;
+  width: 100px;
+}
+
+.card-content {
+  margin: 0px;
+  padding: 9px 0px 10px 0px;
+
+}
+
+.card-tx-nome {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card-tx-tipo {
+  font-size: 14px;
+  opacity: 0.7;
+  padding-top: 2px;
+  padding-block-end: 11px;
+}
+
+.card-tx-desloc {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0px;
+}
+
+.txt-fechado {
+  position: absolute;
+  font-size: 19px;
+  padding-top: 35px;
+  padding-left: 12px
+}

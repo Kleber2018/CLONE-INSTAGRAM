@@ -1,0 +1,30 @@
+<app-layout>
+  <!-- <body *ngIf="!empresasOn" fxLayoutAlign="center center" fxLayout="column" class="carregando">
+    <mat-progress-bar mode="indeterminate" style="padding-top: 40px; width: 192px;"></mat-progress-bar>
+  </body> -->
+  <main fxLayout="column" fxLayoutAlign="start center">
+    <article
+      fxLayout="row wrap"
+      fxLayoutAlign="start center"
+      class="container-lista">
+        <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let categoria of categorias">
+            <mat-card fxFlex.lt-sm="100%"  fxLayout="row" fxLayoutAlign="space-between start" (click)="escolhendoCategoria(categoria)">
+              <div fxFlex.lt-sm="100%" fxLayout="row">
+                <div fxLayoutAlign="center center" class="img-card-content">
+                  <img mat-card-md-image width="80px" height="80px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
+                </div>
+                <mat-card-content fxLayout="column" fxLayoutAlign="center start" class="card-content">
+                  <mat-card-title class="card-tx-nome">{{categoria}}</mat-card-title>
+                </mat-card-content>
+              </div>
+              <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
+                  <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>
+                  <p fxLayoutAlign="start start" style="font-size: 97%; margin: 0px; padding: 0px;">4,6</p>
+              </div>
+            </mat-card>
+        </section>
+        <br><br>
+    </article>
+  </main>
+  <app-footer></app-footer>
+</app-layout>
