@@ -3,16 +3,32 @@
     <!-- <app-header style="margin-block-end: 65px;"></app-header> -->
     <!-- CARD EMPRESAS -->
     <article
+      fxFlex="100%"
       fxLayout="row wrap"
       fxLayoutAlign="start center"
-      class="container-lista">
-        <!-- <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let empresa of empresasOn">
-            
-        </section> -->
-        <p>OLÁ - {{categoria}}</p>
+      class="app-body">
+        <section *ngFor="let story of stories">
+        </section>
+        <img src="{{imgAnuncio}}" width="100%" (click)="proximoAnuncio()">
+
+
+<!-- 
+      <wc-stories fxFlex="100%"  withShadow fxLayoutAlign="center center">
+        <wc-stories-story *ngFor="let story of stories" [src]="story">
+        </wc-stories-story>
+        <button mat-stroked-button [routerLink]="['/home']">Home</button>
+      </wc-stories> -->
+        <!-- <p>OLÁ - {{categoria}} {{imgAnuncio}}</p> -->
     </article>
-    <article fxLayoutAlign="start center">
-      <button mat-stroked-button [routerLink]="['/home']">Home</button>
+    
+    <article fxFlex="100%"  fxLayoutAlign="start center" fxLayout="row">
+      <button fxFlex="100%" mat-stroked-button [routerLink]="['/home']">Home</button>
+      <button  
+        fxFlex="100%" 
+        mat-stroked-button
+        (click)="escolhendoAnuncio()">
+        WhatsApp
+      </button>
     </article>
   </main>
 

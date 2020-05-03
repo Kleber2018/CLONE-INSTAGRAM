@@ -18,6 +18,8 @@ import { MatButtonToggleModule } from '@angular/material';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { WcStories } from '@gugadev/wc-stories'
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     // ButtonModule,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   entryComponents: [
     AlertDialogComponent

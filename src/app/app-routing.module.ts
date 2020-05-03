@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './modules/story/story.module#StoryModule'
   },
   {
+    path: 'stories',
+    loadChildren: './modules/stories/stories.module#StoriesModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

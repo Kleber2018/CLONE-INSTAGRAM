@@ -204,7 +204,7 @@ https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositorie
         git merge --allow-unrelated-histories Lista2-PHP/branchdorepositorio
     dar um push no vscode
 
-## Projeto
+## Mockup
 
 Projeto para o desenvolvimento do dashboard do sistema de Delivery
 https://www.figma.com/file/soRtPgb7wwsSCbIoPrv619/Delivery-app-projeto?node-id=0%3A1	

@@ -3,8 +3,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 
-import { StoryRoutingModule } from './story-routing.module';
-import { StoryComponent } from './story.component';
+import { StoriesRoutingModule } from './stories-routing.module';
+import { StoriesComponent } from './stories.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -16,19 +16,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-   StoryComponent
+   StoriesComponent
   ],
   imports: [
-    FormsModule,
     CommonModule,
-    StoryRoutingModule,
+    StoriesRoutingModule,
     SharedModule,
     MatCardModule,
     MatButtonModule,
@@ -44,4 +41,4 @@ import { FormsModule } from '@angular/forms';
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class StoryModule {}
+export class StoriesModule {}

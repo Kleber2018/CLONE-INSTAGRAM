@@ -1,12 +1,12 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-
-
-
 import { Router, ActivatedRoute } from '@angular/router';
-
-
+// import {WcStories} from 
+// import {*} from '@gugadev/wc-stories'
+// import * as wc-stories from '@gugadev';
+import '@gugadev/wc-stories';
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
+import '@webcomponents/custom-elements/custom-elements.min';
 
 
 @Component({
@@ -17,15 +17,53 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class StoryComponent implements OnInit {
 
   public categoria: string;
+  public imgAnuncio: string;
+  // public stories = [
+  //   'https://i.imgur.com/AY5z4ZP.jpg',
+  //   'https://i.imgur.com/HJBbtOI.jpg',
+  //   'https://i.imgur.com/tXgQukC.jpg',
+  //   'https://i.imgur.com/A7BMaSe.jpg'
+  // ]
+  public stories = [
+    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fcapa.jpg?alt=media&token=3db69eb4-03e0-4435-891b-16b2dfccbe1a',
+    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolocapa.jpg?alt=media&token=41d768fb-ab9e-435d-bb17-a5aa4554c2ed',
+    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fbolo1.jpg?alt=media&token=6116f512-03dd-417f-b547-20ee6260f12d',
+    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhoscapa.jpg?alt=media&token=39754100-8b75-47f7-8d96-76ce4613639e',
+    'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhos1.jpg?alt=media&token=20a35220-6844-408b-85c6-5ce58840ebcd'
+
+  ] 
+  public indexAnuncio: number;
+  public whatsApp = 'http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza';
 
   constructor(  private router: Router,
                 private activatedRoute: ActivatedRoute) {
                 window.scrollTo( 0, 0 );
+                this.indexAnuncio = 0
+                this.imgAnuncio = this.stories[this.indexAnuncio]
               }
 
   ngOnInit() { 
     this.categoria = this.activatedRoute.snapshot.params.categoria;
     console.log(this.categoria);
   }
+
+  proximoAnuncio(){
+    this.indexAnuncio = this.indexAnuncio + 1;
+    this.imgAnuncio = this.stories[this.indexAnuncio]
+    if(this.stories.length == this.indexAnuncio){
+      this.indexAnuncio = 0;
+    }
+
+  }
+
+  escolhendoAnuncio(){
+    window.open(this.whatsApp, "_blank");
+
+      // this.router.navigate(['http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza']);
+  }
+
+ 
+
+
  
 }

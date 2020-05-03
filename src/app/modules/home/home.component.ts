@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   escolhendoCategoria(categoriaEscolhida: any){
     console.log('escolhido', categoriaEscolhida);
     this.router.navigate(['/story', categoriaEscolhida]);
+    // this.router.navigate(['/stories', categoriaEscolhida]);
   }
 
 
