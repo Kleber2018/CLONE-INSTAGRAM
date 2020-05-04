@@ -4,32 +4,17 @@ h4, a, p, span {
 
 .footer {
   width: 100%;
-  margin-top: 50px;
-  margin-block-end: 50px;
+  padding-block-end: 30px;
   font-size: 87%;
-  color: grey;
+  color: white;
+  background-color: #177649;
 }
 
-/* .footer {
-  width: 100%;
-  min-height: 52px;
-  color: grey;
-  font-weight: 400;
-  font-size: 1rem;
-} */
-
-/* .footer-copyright {
-  padding: 0px 12px;
-}
-
-.abbreviation {
-  text-decoration: none;
-} */
 
 
 /* // celular */
 @media screen and (max-width: 959px) {
-  .footer {
+  /* .footer {
     margin-block-end: 120px;
-  }
+  } */
 }

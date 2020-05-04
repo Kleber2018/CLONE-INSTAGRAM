@@ -3,21 +3,17 @@ main {
   min-height: calc(100vh - 102px);
 }
 
-.app-header {
-   align-items: center;
-   background: linear-gradient(#d32f2f ,#f44336);
-   display: flex;
-   height: 150px;
-   justify-content: center;
- }
- .logo {
-   filter: drop-shadow(0 10px 10px #ddd);;
-   height: 120px;
- }
  .app-body {
    width: 100%;
    min-height: calc(100vh - 102px);
    display: flex;
    justify-content: center;
   //  padding: 50px;
+ }
+
+
+ @media only screen and (min-width: 500px) {
+  .app-body {
+    max-width: 500px;
+  }
  }

@@ -7,12 +7,32 @@ import { Router, ActivatedRoute } from '@angular/router';
 import '@gugadev/wc-stories';
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
 import '@webcomponents/custom-elements/custom-elements.min';
+import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 
 
 @Component({
   selector: 'app-story',
   templateUrl: './story.component.html',
-  styleUrls: ['./story.component.scss']
+  styleUrls: ['./story.component.scss'],
+  animations: [
+    trigger('animaTroca',[
+      // state('iniciando', style({
+      //   transform: 'scale(1)'
+      // })),
+      // state('finalizado', style({
+      //   transform: 'scale(1)'
+      // })),
+      // exemplo: this.pedindo = this.pedindo === 'finalizado' ? 'iniciando' : 'finalizado';
+      transition('* => *', [
+        animate('0.6s', 
+          keyframes([
+            style({ transform: 'scale(0.3)' }),
+            style({ transform: 'scale(0.7)'}),
+            style({ transform: 'scale(1)'}),
+        ]),
+      )]),
+    ]),
+  ]
 })
 export class StoryComponent implements OnInit {
 
@@ -32,6 +52,8 @@ export class StoryComponent implements OnInit {
   //   'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/produtos%2Fdocinhos1.jpg?alt=media&token=20a35220-6844-408b-85c6-5ce58840ebcd'
 
   // ] 
+
+  // #177649
 
   public stories = [
     '../../../assets/veneza/capa.jpg',
@@ -57,6 +79,7 @@ export class StoryComponent implements OnInit {
   }
 
   proximoAnuncio(){
+
     if(this.stories.length <= (this.indexAnuncio+1)){
       console.log('dentro');
       this.indexAnuncio = 0;
