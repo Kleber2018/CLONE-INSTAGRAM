@@ -23,6 +23,28 @@ import { trigger, transition, animate, keyframes, style } from '@angular/animati
       //   transform: 'scale(1)'
       // })),
       // exemplo: this.pedindo = this.pedindo === 'finalizado' ? 'iniciando' : 'finalizado';
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'scale(0.3)' }),
+      //       style({ transform: 'scale(0.7)'}),
+      //       style({ transform: 'scale(1)'}),
+      //   ]),
+      // )]),
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'translateX(100%)' }),
+      //   ]),
+      // )]),
+
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'translateX(100%)' }),
+      //   ]),
+      // )]),
+
       transition('* => *', [
         animate('0.6s', 
           keyframes([
@@ -31,6 +53,7 @@ import { trigger, transition, animate, keyframes, style } from '@angular/animati
             style({ transform: 'scale(1)'}),
         ]),
       )]),
+
     ]),
   ]
 })
