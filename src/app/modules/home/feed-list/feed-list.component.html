@@ -1,11 +1,10 @@
 <article
-    *ngIf="prodVariacAdc"
     fxLayout="column"
     fxLayoutAlign="center">      
       
       <!-- CARD PRODUTOS -->
       <!-- <mat-divider style="margin-top: 10px;"></mat-divider> -->
-      <section *ngFor="let categoria of prodVariacAdc.empresa.categorias" >
+      <!-- <section *ngFor="let categoria of prodVariacAdc.empresa.categorias" >
           <p class="titulo-categoria" >{{categoria.nome}} {{categoria.ordem}}</p>
           <div fxLayout="row"  fxLayoutAlign="space-between start" *ngFor="let item of produtos" >
             <mat-card 
@@ -36,10 +35,9 @@
                         <mat-icon style="color: brown;">check_box_outline_blank</mat-icon>
                           Está Indisponível
                       </button>
-                      <!-- <button mat-raised-button color="primary"  (click)="adicionaisProduto(item.id)" style=" margin: 0px;">Adicionais</button> -->
                   </mat-card-actions>
             </mat-card>
           </div>
-      </section>
+      </section> -->
       <!-- <mat-divider style="margin-top: 10px;"></mat-divider> -->
 </article>

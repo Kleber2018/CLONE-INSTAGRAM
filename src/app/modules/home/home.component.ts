@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
             itens: e.payload.doc.data().itens,
             status: e.payload.doc.data().status,
             createdAt: e.payload.doc.data().status,
+            indexImg: 0
           };
         });
         this.anuncios.sort((a, b) => (a.categoria < b.categoria) ? -1 : 1);
@@ -79,6 +80,20 @@ export class HomeComponent implements OnInit {
     // this.router.navigate(['/stories', categoriaEscolhida]);
   }
 
+  // para correr as imagens do anuncio
+  proximaImagemAnuncio(anuncio: any){
+    var indexAnuncio = this.anuncios.indexOf(anuncio)
+    if(this.anuncios[indexAnuncio].anuncio.img.length >= (this.anuncios[indexAnuncio].indexImg+2)){
+      this.anuncios[indexAnuncio].indexImg = this.anuncios[indexAnuncio].indexImg + 1;
+    } else {
+      this.anuncios[indexAnuncio].indexImg = 0;
+    }
+  }
+
+  escolhendoAnuncio(link: string){
+    window.open(link, "_blank");
+      // this.router.navigate(['http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza']);
+  }
 
   openThemeMenu() {}
 

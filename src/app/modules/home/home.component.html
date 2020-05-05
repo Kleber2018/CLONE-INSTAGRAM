@@ -29,23 +29,44 @@
       style="margin-top: 10px;">
         <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let anuncio of anuncios">
             
-          <mat-card class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start" (click)="escolhendoCategoria(categoria)">
+          <mat-card class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start">
             <div style="width: 100%;" fxLayout="row">
-              <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
+              <!-- <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
                 <div fxFlex="100%" >
                   <img width='100%' src="{{img}}" alt="Imagem do anuncio">
                 </div>
-              </div>
+              </div> -->
+                <div fxFlex="100%" *ngIf="anuncio.anuncio.img" >
+                  <img width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio">
+                  <!-- <button mat-button (click)="proximaImagem(anuncio)">
+                    <mat-icon >keyboard_arrow_right</mat-icon>
+                  </button> -->
+                </div>
+
             </div>
             
             <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc">
-              <p class="card-txt-desc-anunc">{{anuncio.anuncio.titulo}}</p>
-              <p class="card-txt-desc-anunc">{{anuncio.anuncio.descricao}}</p>
+              <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.anuncio.titulo}}</p>
+              <p class="card-txt-desc-anunc" style="margin-block-end: 5px;">{{anuncio.anuncio.descricao}}</p>
+              <mat-divider></mat-divider>
               <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
-                <p fxFlex="70%" class="card-txt-desc-anunc">{{item.titulo}}</p>
-                <p fxFlex="30%" class="card-txt-desc-anunc">{{item.preco  | currency:'BRL':'+ R$ '}}</p>
+                <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
+                <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 10px;">{{item.preco  | currency:'BRL':'+ R$ '}}</p>
               </div>
-              <p class="card-txt-desc-anunc">{{anuncio.anuncio.entrega}}</p>
+              <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
+              <!-- <button mat-raised-button color="primary">Envie uma mensagem</button> -->
+              <div fxFlex="100%" style="width: 100%;" >
+                <button  
+                fxFlex="100%"
+                fxLayoutAlign="end end"
+                style="font-size: 17px; margin-top: 5px;" 
+                fxLayout="row"
+                mat-raised-button
+                (click)="escolhendoAnuncio(anuncio.anuncio.linkExterno)">
+                  <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;">
+                  Envie uma mensagem
+                </button>
+              </div>
             </mat-card-content>
               <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
                   <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>

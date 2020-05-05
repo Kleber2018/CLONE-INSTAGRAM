@@ -22,4 +22,5 @@ export interface Anuncio {
   updatedAt?: any;
   createdAt?: any;
   status: string; //2-pendende, 3-aceito, 4-cancelado, 4-finalizado
+  indexImg?: number;//para utilizar no fronte
  }
