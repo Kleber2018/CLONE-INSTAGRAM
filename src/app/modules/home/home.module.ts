@@ -16,12 +16,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FeedListComponent } from './feed-list/feed-list.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    FeedListComponent
   ],
   imports: [
     CommonModule,

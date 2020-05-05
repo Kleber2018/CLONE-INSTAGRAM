@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public categorias = ['LANCHONETE', 'LOJA', 'PRESENTE', 'OUTROS'];
+  public categoria = 'Presente'
  
   constructor(
     private router: Router
@@ -21,7 +22,9 @@ export class HomeComponent implements OnInit {
 
   escolhendoCategoria(categoriaEscolhida: any){
     console.log('escolhido', categoriaEscolhida);
-    this.router.navigate(['/story', categoriaEscolhida]);
+    this.categoria = categoriaEscolhida;
+    console.log(this.categoria);
+    // this.router.navigate(['/story', categoriaEscolhida]);
     // this.router.navigate(['/stories', categoriaEscolhida]);
   }
 

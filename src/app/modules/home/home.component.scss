@@ -4,6 +4,11 @@ main {
   background-color: #177649;
 }
 
+.container-lista {
+  max-width: 1300px;
+}
+
+
 .carregando{
   height: 100%; 
   width: 100%; 
@@ -16,58 +21,62 @@ p {
 p, span, mat-card-title,button, mat-card-subtitle {
   font-family: 'Nunito', sans-serif;
 }
-mat-card:hover {
+.mat-card:hover {
     background: rgb(212, 210, 210);
   }
 
-mat-card {
-  margin: 3px;
+
+  //categorias
+  .mat-card-categorias {
+    margin: 2px 1px;
+    width: 85px;
+    // height: 120px;
+    padding: 3px;
+  }
+  .card-tx-nome {
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+
+  //anuncios
+.mat-card-anuncios {
+  margin: 0px;
   width: 400px;
-  height: 120px;
+  // height: 120px;
   padding: 10px;
 }
 
-.container-lista {
-  max-width: 1300px;
+.card-txt-desc-anunc {
+  font-size: 14px;
+  opacity: 0.7;
+  padding-top: 2px;
 }
 
- #btnpedidoflutu {
-    z-index: 2;
-    position: fixed;
-    bottom:10px;
-    right:50%;
-    left: 50%;
-    margin-block-end: 30px;
- }
 
-//  #btn-nav-footer {
-//   position: fixed;
-//   bottom: 0px;
-//   width: 100%;
-//   max-width: 600px;
-//   padding: 0px;
-//   margin: 0px;
-//   background-color: white;
-// }
-
+//  #btnpedidoflutu {
+//     z-index: 2;
+//     position: fixed;
+//     bottom:10px;
+//     right:50%;
+//     left: 50%;
+//     margin-block-end: 30px;
+//  }
 
 
 // celular
 @media screen and (max-width: 599px) {
-
-  
+ 
   .carregando{
     padding-top: 100px; 
     padding-block-end: 300px;
   }
 
-  mat-card {
-    margin: 1px 10px 1px 10px;
+  .mat-card-anuncios {
+    margin: 1px 0px;
     width: 100%;
-    height: 100px;
     padding: 0px;
   }
-
 
   .container-lista {
     width: 100%;
@@ -86,6 +95,17 @@ mat-card {
 }
 
 
+
+
+
+
+
+
+
+
+
+//PRECISO REFATORAR O CÓDIGO ABAIXO
+
 .img-card-emp {
   height: 80px;
   width: 80px;
@@ -102,10 +122,7 @@ mat-card {
 
 }
 
-.card-tx-nome {
-  font-weight: bold;
-  font-size: 18px;
-}
+
 
 .card-tx-tipo {
   font-size: 14px;
