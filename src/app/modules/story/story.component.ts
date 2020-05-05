@@ -76,7 +76,7 @@ export class StoryComponent implements OnInit {
 
   // ] 
 
-  // #177649
+
 
   public stories = [
     '../../../assets/veneza/capa.jpg',

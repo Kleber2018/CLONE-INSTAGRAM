@@ -25,15 +25,27 @@
     <article
       fxLayout="row wrap"
       fxLayoutAlign="start center"
-      class="container-lista">
-        <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let categoria of categorias">
+      class="container-lista"
+      style="margin-top: 10px;">
+        <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let anuncio of anuncios">
             
-          <mat-card class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start center" (click)="escolhendoCategoria(categoria)">
-            <div>
-              <img width="100%"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem do anuncio">
+          <mat-card class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start" (click)="escolhendoCategoria(categoria)">
+            <div style="width: 100%;" fxLayout="row">
+              <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
+                <div fxFlex="100%" >
+                  <img width='100%' src="{{img}}" alt="Imagem do anuncio">
+                </div>
+              </div>
             </div>
-            <mat-card-content fxLayout="column" fxLayoutAlign="center start" class="card-content">
-              <p class="card-txt-desc-anunc">{{categoria}}</p>
+            
+            <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc">
+              <p class="card-txt-desc-anunc">{{anuncio.anuncio.titulo}}</p>
+              <p class="card-txt-desc-anunc">{{anuncio.anuncio.descricao}}</p>
+              <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
+                <p fxFlex="70%" class="card-txt-desc-anunc">{{item.titulo}}</p>
+                <p fxFlex="30%" class="card-txt-desc-anunc">{{item.preco  | currency:'BRL':'+ R$ '}}</p>
+              </div>
+              <p class="card-txt-desc-anunc">{{anuncio.anuncio.entrega}}</p>
             </mat-card-content>
               <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
                   <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>

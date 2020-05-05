@@ -17,6 +17,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FeedListComponent } from './feed-list/feed-list.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
@@ -37,7 +38,8 @@ import { FeedListComponent } from './feed-list/feed-list.component';
     MatMenuModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ScrollingModule
   ]
 })
 export class HomeModule {}

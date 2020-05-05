@@ -6,8 +6,8 @@ h4, a, p, span {
   width: 100%;
   padding-block-end: 30px;
   font-size: 87%;
-  color: white;
-  background-color: #177649;
+  color: grey;
+  /* background-color: #177649; */
 }
 
 
