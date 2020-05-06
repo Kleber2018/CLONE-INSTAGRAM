@@ -1,34 +1,18 @@
 <app-layout>
-  <!-- <body *ngIf="!empresasOn" fxLayoutAlign="center center" fxLayout="column" class="carregando">
-    <mat-progress-bar mode="indeterminate" style="padding-top: 40px; width: 192px;"></mat-progress-bar>
-  </body> -->
   <main fxLayout="column" fxLayoutAlign="start center">
 
     <article
       fxLayout="row wrap"
       fxLayoutAlign="center center"
       class="container-lista">
-        
-
         <section fxFlex="25%" fxLayoutAlign="space-between start" fxLayout="column" *ngFor="let categoria of categorias">
-
           <button fxFlex="100%" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
             <div fxLayoutAlign="center center" class="img-card-content">
               <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
             </div>
             <p class="card-tx-nome">{{categoria}}</p>
           </button>
-            
-          <!-- <mat-card class="mat-card-categorias"   fxLayout="column" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
-                <div fxLayoutAlign="center center" class="img-card-content">
-                  <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
-                </div>
-                <p class="card-tx-nome">{{categoria}}</p>
-            </mat-card> -->
         </section>
-        <app-feed-list [categoria]="categoria"></app-feed-list>
-
-        <br><br>
     </article>
 
     <article
@@ -45,13 +29,9 @@
                   <img width='100%' src="{{img}}" alt="Imagem do anuncio">
                 </div>
               </div> -->
-                <div fxFlex="100%" *ngIf="anuncio.anuncio.img" >
-                  <img width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio">
-                  <!-- <button mat-button (click)="proximaImagem(anuncio)">
-                    <mat-icon >keyboard_arrow_right</mat-icon>
-                  </button> -->
-                </div>
-
+              <div fxFlex="100%" *ngIf="anuncio.anuncio.img" >
+                <img width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio">
+              </div>
             </div>
             
             <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
@@ -62,7 +42,6 @@
                 <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
               </div>
               <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
-              <!-- <button mat-raised-button color="primary">Envie uma mensagem</button> -->
               <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
                 <button  
                 fxLayoutAlign="end end"
@@ -75,15 +54,13 @@
                 </button>
               </div>
             </mat-card-content>
+              <!-- avaliacao -->
               <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
                   <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>
                   <p fxLayoutAlign="start start" style="font-size: 97%; margin: 0px; padding: 0px;">4,6</p>
               </div> -->
             </mat-card>
         </section>
-        <app-feed-list [categoria]="categoria"></app-feed-list>
-
-        <br><br>
     </article>
   </main>
   <app-footer></app-footer>
