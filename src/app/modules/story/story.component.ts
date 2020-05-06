@@ -76,8 +76,6 @@ export class StoryComponent implements OnInit {
 
   // ] 
 
-
-
   public stories = [
     '../../../assets/veneza/capa.jpg',
     '../../../assets/veneza/bolocapa.jpg',
@@ -118,8 +116,6 @@ export class StoryComponent implements OnInit {
 
       // this.router.navigate(['http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza']);
   }
-
- 
 
 
  

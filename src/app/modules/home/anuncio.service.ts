@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
-
 import * as firebase from 'firebase/app';
-import { take, first, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Anuncio } from './anuncio.model';
-import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +13,13 @@ export class AnuncioService {
   private anuncioCollection: AngularFirestoreCollection<Anuncio>;
   private anuncioWhereCollection: AngularFirestoreCollection<Anuncio>;
   private enumCollection: AngularFirestoreCollection<any>;
-  private task: AngularFireUploadTask;
 
   constructor(protected db: AngularFirestore,
-              protected where: AngularFirestore,
-              private storage: AngularFireStorage) {
+              protected where: AngularFirestore) {
       this.anuncioCollection = db.collection<Anuncio>('anuncio');
       this.enumCollection = db.collection<any>('enum');
     }
+
     get timestamp() {
       return firebase.firestore.FieldValue.serverTimestamp();
     }
@@ -31,6 +28,7 @@ export class AnuncioService {
       return new Date().toString()
     }
 
+    //INSERT
     public addAnuncio(anuncio: Anuncio) {
       return this.anuncioCollection.add({
         ...anuncio,
@@ -42,63 +40,21 @@ export class AnuncioService {
       .catch(er => console.error('erro no slavar gestor', er));
     }
 
+    // GET TODOS OS ANUNCIOS
     public getAnuncios() {
       return this.anuncioCollection.snapshotChanges(); // mantem atualizado em realtime
     }
 
+    //GET UM ANUNCIO ESPECÍFICO
     public getAnuncio(id: string): Observable<Anuncio> {
       return this.anuncioCollection.doc<Anuncio>(id).valueChanges();
     }
 
-    public updateAnuncioItem(id: string, itens: any){
-      return this.anuncioCollection.doc(id).update({"itens" : itens});
-    }
 
 
-    // UPLOADFILE
-    public uploadFile( fileImg: any, id: string, nome: string, imgs:any): void {
-
-      console.log('dentro', id, nome, imgs)
-      const path = id + '/' + nome;
-      const fileRef = this.storage.ref(path.replace(/\s/g, ''));
-      this.task = this.storage.upload(path.replace(/\s/g, ''), fileImg);
-      this.task.then(up => {
-        fileRef.getDownloadURL().subscribe(url => {
-          this.updateUrl(id, url, imgs);
-        });
-      });
-    }
-
-
-    // public uploadFileLogo( fileLogo: any, id: string): void {
-    //   const path = id + '/logo';
-    //   const fileRef = this.storage.ref(path.replace(/\s/g, ''));
-    //   this.task = this.storage.upload(path.replace(/\s/g, ''), fileLogo);
-    //   this.task.then(up => {
-    //     fileRef.getDownloadURL().subscribe(url => {
-    //       this.updateEmpresaUrlLogo(id, url);
-    //     });
-    //   });
-    // }
-
-    private updateUrl(id: string, valor: string, imgs: any): Promise<void> {
-      if(imgs.length == 0){
-        imgs = [valor];
-      } else {
-        console.log('dentro do imgs', imgs)
-        imgs.push(valor);
-      }
-
-      console.log( 'id:', id)
-      console.log( 'id:', id, imgs)
-      // return id;
-      return this.anuncioCollection.doc(id).update({"anuncio.img" : imgs}).then(() => { });
-    }
-
-
-
-
-
+// ---------------------------------------------------------------------------------
+// EXEMPLOS DE CÓDIGO
+// ---------------------------------------------------------------------------------
     // // LOCAL
     // setLocalSolicitacao(solicitacao: Solicitacao) {
     //   if(solicitacao.createdAt == ''){ //para ter o horário do inicio do pedido

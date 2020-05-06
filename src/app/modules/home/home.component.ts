@@ -67,11 +67,12 @@ export class HomeComponent implements OnInit {
     private anuncioService: AnuncioService,
     private router: Router
     ) { window.scrollTo( 0, 0 );
-      this.iniciandoListaAnuncios()}
-
+      this.iniciandoListaAnuncios()
+    }
 
   ngOnInit() { }
 
+  //Buscando no BD, aindá não adicionei o filtro de categoria
   iniciandoListaAnuncios(categoria?: string){
       this.anuncioService.getAnuncios().pipe(takeUntil(this.end)).subscribe(res => {
         this.anuncios = res.map(e => {
@@ -94,28 +95,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  iniciandoListaAnunciosCat(categoriaLocal: string){
-    this.anuncioService.getAnuncios().pipe(takeUntil(this.end)).subscribe(res => {
-      this.anuncios = res.map(e => {
-        return {
-          uid: e.payload.doc.id,
-          usuario: e.payload.doc.data().usuario,
-          empresaNome: e.payload.doc.data().empresaNome,
-          categoria: e.payload.doc.data().categoria,
-          ordem: e.payload.doc.data().ordem,
-          funcionamento: e.payload.doc.data().funcionamento,
-          anuncio: e.payload.doc.data().anuncio,
-          itens: e.payload.doc.data().itens,
-          status: e.payload.doc.data().status,
-          createdAt: e.payload.doc.data().status,
-        };
-      });
-      this.anuncios.sort((a, b) => (a.categoria < b.categoria) ? -1 : 1);
-      console.log(this.anuncios);
-    });
-}
-
-
+  
   escolhendoCategoria(categoriaEscolhida: any){
     this.iniciandoListaAnuncios(categoriaEscolhida)
     console.log('escolhido', categoriaEscolhida);

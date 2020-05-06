@@ -16,15 +16,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FeedListComponent } from './feed-list/feed-list.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    FeedListComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
