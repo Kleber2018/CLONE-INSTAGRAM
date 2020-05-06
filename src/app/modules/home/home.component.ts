@@ -5,11 +5,55 @@ import { AnuncioService } from './anuncio.service';
 import { Anuncio } from './anuncio.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { trigger, transition, animate, style, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('animaInicCard',[
+      // state('iniciando', style({
+      //   transform: 'scale(1)'
+      // })),
+      // state('finalizado', style({
+      //   transform: 'scale(1)'
+      // })),
+      // exemplo: this.pedindo = this.pedindo === 'finalizado' ? 'iniciando' : 'finalizado';
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'scale(0.3)' }),
+      //       style({ transform: 'scale(0.7)'}),
+      //       style({ transform: 'scale(1)'}),
+      //   ]),
+      // )]),
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'translateX(100%)' }),
+      //   ]),
+      // )]),
+
+      // transition('* => *', [
+      //   animate('0.6s', 
+      //     keyframes([
+      //       style({ transform: 'translateX(100%)' }),
+      //   ]),
+      // )]),
+
+      transition('* => *', [
+        animate('0.6s', 
+          keyframes([
+            style({ transform: 'translateX(100%)' }),
+            style({ transform: 'scale(0.8)'}),
+            style({ transform: 'scale(0.9)'}),
+            style({ transform: 'scale(1)'}),
+        ]),
+      )]),
+
+    ]),
+  ]
 })
 export class HomeComponent implements OnInit {
 
@@ -28,7 +72,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() { }
 
-  iniciandoListaAnuncios(){
+  iniciandoListaAnuncios(categoria?: string){
       this.anuncioService.getAnuncios().pipe(takeUntil(this.end)).subscribe(res => {
         this.anuncios = res.map(e => {
           return {
@@ -73,6 +117,7 @@ export class HomeComponent implements OnInit {
 
 
   escolhendoCategoria(categoriaEscolhida: any){
+    this.iniciandoListaAnuncios(categoriaEscolhida)
     console.log('escolhido', categoriaEscolhida);
     this.categoria = categoriaEscolhida;
     console.log(this.categoria);

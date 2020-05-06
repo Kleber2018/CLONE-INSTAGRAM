@@ -6,16 +6,25 @@
 
     <article
       fxLayout="row wrap"
-      fxLayoutAlign="start center"
+      fxLayoutAlign="center center"
       class="container-lista">
-        <section fxLayoutAlign="space-between start" fxLayout="row" *ngFor="let categoria of categorias">
+        
+
+        <section fxFlex="25%" fxLayoutAlign="space-between start" fxLayout="column" *ngFor="let categoria of categorias">
+
+          <button fxFlex="100%" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
+            <div fxLayoutAlign="center center" class="img-card-content">
+              <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
+            </div>
+            <p class="card-tx-nome">{{categoria}}</p>
+          </button>
             
-          <mat-card class="mat-card-categorias"   fxLayout="column" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
+          <!-- <mat-card class="mat-card-categorias"   fxLayout="column" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
                 <div fxLayoutAlign="center center" class="img-card-content">
                   <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
                 </div>
                 <p class="card-tx-nome">{{categoria}}</p>
-            </mat-card>
+            </mat-card> -->
         </section>
         <app-feed-list [categoria]="categoria"></app-feed-list>
 
@@ -29,7 +38,7 @@
       style="margin-top: 10px;">
         <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let anuncio of anuncios">
             
-          <mat-card class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start">
+          <mat-card [@animaInicCard]="this.categoria" class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start">
             <div style="width: 100%;" fxLayout="row">
               <!-- <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
                 <div fxFlex="100%" >
@@ -45,21 +54,19 @@
 
             </div>
             
-            <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc">
+            <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
               <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.anuncio.titulo}}</p>
               <p class="card-txt-desc-anunc" style="margin-block-end: 5px;">{{anuncio.anuncio.descricao}}</p>
-              <mat-divider></mat-divider>
               <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
                 <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
-                <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 10px;">{{item.preco  | currency:'BRL':'+ R$ '}}</p>
+                <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
               </div>
               <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
               <!-- <button mat-raised-button color="primary">Envie uma mensagem</button> -->
-              <div fxFlex="100%" style="width: 100%;" >
+              <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
                 <button  
-                fxFlex="100%"
                 fxLayoutAlign="end end"
-                style="font-size: 17px; margin-top: 5px;" 
+                style="font-size: 17px; margin-top: 5px; margin-block-end: 3px;" 
                 fxLayout="row"
                 mat-raised-button
                 (click)="escolhendoAnuncio(anuncio.anuncio.linkExterno)">
