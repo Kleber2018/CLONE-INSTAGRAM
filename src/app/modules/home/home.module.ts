@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatBadgeModule } from '@angular/material';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -12,6 +12,7 @@ import {MatDividerModule} from '@angular/material/divider';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 /**Modules.*/
@@ -37,7 +38,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatDividerModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    ScrollingModule
+    ScrollingModule,
+    MatBadgeModule
   ]
 })
 export class HomeModule {}
