@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 /**Popups & Modals.*/
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 /**Form Controls.*/
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -32,7 +34,6 @@ import { MatDividerModule } from '@angular/material/divider';
 
 /**Data Table.*/
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonToggleModule } from '@angular/material';
 
 @NgModule({
   imports: [

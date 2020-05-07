@@ -5,7 +5,7 @@ import { AnuncioService } from './anuncio.service';
 import { Anuncio } from './anuncio.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { trigger, transition, animate, style, keyframes } from '@angular/animations';
+import { trigger, transition, animate, style, keyframes, state } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +41,6 @@ import { trigger, transition, animate, style, keyframes } from '@angular/animati
       //       style({ transform: 'translateX(100%)' }),
       //   ]),
       // )]),
-
       transition('* => *', [
         animate('0.6s', 
           keyframes([
@@ -51,17 +50,32 @@ import { trigger, transition, animate, style, keyframes } from '@angular/animati
             style({ transform: 'scale(1)'}),
         ]),
       )]),
-
     ]),
+    // trigger('animandoMaisDetalhes', [
+    //   state('true', style({
+    //     overflow: 'hidden',
+    //     height: '*',
+    //     width: '300px'
+    //   })),
+    //   // state('out', style({
+    //   //   opacity: '0',
+    //   //   overflow: 'hidden',
+    //   //   height: '0px',
+    //   //   width: '0px'
+    //   // })),
+    //   transition('* => *', animate('600ms ease-in-out')),
+    //   // transition('out => in', animate('400ms ease-in-out'))
+    // ])
   ]
 })
 export class HomeComponent implements OnInit {
 
   private end: Subject<boolean> = new Subject();
 
-  public categorias = ['LANCHONETE', 'LOJA', 'PRESENTE', 'OUTROS'];
+  public categorias = ['COMIDAS', 'PRODUTOS', 'SERVIÇOS', 'OUTROS'];
   public categoria = 'Presente'
   public anuncios: Anuncio[]
+  public variavelAnimaMaisDetalhes = true;
  
   constructor(
     private anuncioService: AnuncioService,
@@ -71,7 +85,6 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit() { }
-
   //Buscando no BD, aindá não adicionei o filtro de categoria
   iniciandoListaAnuncios(categoria?: string){
       this.anuncioService.getAnuncios().pipe(takeUntil(this.end)).subscribe(res => {
@@ -87,7 +100,8 @@ export class HomeComponent implements OnInit {
             itens: e.payload.doc.data().itens,
             status: e.payload.doc.data().status,
             createdAt: e.payload.doc.data().status,
-            indexImg: 0
+            indexImg: 0,
+            ocultardetalhes: false
           };
         });
         this.anuncios.sort((a, b) => (a.categoria < b.categoria) ? -1 : 1);
@@ -115,8 +129,22 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  escolhendoAnuncio(link: string){
-    window.open(link, "_blank");
+  // animaMaisDetalhes(): void {
+  //   console.log(this.variavelAnimaMaisDetalhes)
+  //   this.variavelAnimaMaisDetalhes = this.variavelAnimaMaisDetalhes === false ? true : false;
+  //   console.log(this.variavelAnimaMaisDetalhes)
+  // }
+
+  escolhendoAnuncio(link: string, produto: string){
+    // terminar de desenvolver o gerador de link whatsApp
+    var txtPadrao = "Olá, estou interessado por "+produto+" do Shopping Jd Veneza";
+    var txtPadraoExplodido = txtPadrao.split(" ");
+
+    console.log( txtPadraoExplodido.join('%20'))
+
+
+
+    // window.open(link, "_blank");
       // this.router.navigate(['http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza']);
   }
 

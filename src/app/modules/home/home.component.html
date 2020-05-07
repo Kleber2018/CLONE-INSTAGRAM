@@ -7,10 +7,10 @@
       class="container-lista">
         <section fxFlex="25%" fxLayoutAlign="space-between start" fxLayout="column" *ngFor="let categoria of categorias">
           <button fxFlex="100%" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
-            <div fxLayoutAlign="center center" class="img-card-content">
+            <!-- <div fxLayoutAlign="center center" class="img-card-content">
               <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
-            </div>
-            <p class="card-tx-nome">{{categoria}}</p>
+            </div> -->
+            <p class="card-tx-nome" style="font-size: 11px">{{categoria}}</p>
           </button>
         </section>
     </article>
@@ -29,27 +29,37 @@
                   <img width='100%' src="{{img}}" alt="Imagem do anuncio">
                 </div>
               </div> -->
-              <div fxFlex="100%" *ngIf="anuncio.anuncio.img" >
-                <img width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio">
+
+              <div fxFlex="100%" *ngIf="anuncio.anuncio.img">
+                <div fxLayoutAlign="end" class="badge-img-div">
+                  <p class="badge-img">{{anuncio.anuncio.img.length}}</p>
+                </div>
+
+                <img  width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
               </div>
             </div>
             
             <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
               <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.anuncio.titulo}}</p>
-              <p class="card-txt-desc-anunc" style="margin-block-end: 5px;">{{anuncio.anuncio.descricao}}</p>
-              <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
-                <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
-                <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
+
+              <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
+                <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.anuncio.descricao}}</p>
+                <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
+                  <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
+                  <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
+                </div>
+                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
               </div>
-              <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
+              <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
+              <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
               <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
                 <button  
                 fxLayoutAlign="end end"
                 style="font-size: 17px; margin-top: 5px; margin-block-end: 3px;" 
                 fxLayout="row"
                 mat-raised-button
-                (click)="escolhendoAnuncio(anuncio.anuncio.linkExterno)">
-                  <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;">
+                (click)="escolhendoAnuncio(anuncio.anuncio.linkExterno, anuncio.anuncio.titulo)">
+                  <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
                   Envie uma mensagem
                 </button>
               </div>
