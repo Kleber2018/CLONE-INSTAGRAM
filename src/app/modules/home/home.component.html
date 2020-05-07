@@ -58,7 +58,8 @@
                 style="font-size: 17px; margin-top: 5px; margin-block-end: 3px;" 
                 fxLayout="row"
                 mat-raised-button
-                (click)="escolhendoAnuncio(anuncio.anuncio.linkExterno, anuncio.anuncio.titulo)">
+                *ngIf="anuncio.anuncio.whatsApp"
+                (click)="escolhendoAnuncioWhatsApp(anuncio.anuncio.whatsApp, anuncio.anuncio.titulo)">
                   <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
                   Envie uma mensagem
                 </button>
