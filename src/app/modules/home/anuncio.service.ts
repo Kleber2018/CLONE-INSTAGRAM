@@ -40,16 +40,26 @@ export class AnuncioService {
       .catch(er => console.error('erro no slavar gestor', er));
     }
 
-    // GET TODOS OS ANUNCIOS
-    public getAnuncios() {
-      return this.anuncioCollection.snapshotChanges(); // mantem atualizado em realtime
-    }
+    // // GET TODOS OS ANUNCIOS
+    // public getAnuncios() {
+    //   return this.anuncioCollection.snapshotChanges(); // mantem atualizado em realtime
+    // }
 
     //GET UM ANUNCIO ESPECÍFICO
     public getAnuncio(id: string): Observable<Anuncio> {
       return this.anuncioCollection.doc<Anuncio>(id).valueChanges();
     }
 
+
+     // GET TODOS OS ANUNCIOS da categoria   //2-pendende, 3-aceito, 4-cancelado, 4-finalizado
+     public getAnunciosWhere(categoria: string) {
+      this.anuncioWhereCollection = this.where.collection('anuncio', ref => ref
+        .where('categoria', '==', categoria)
+        .where('status', '==', '3-ativo')
+        );
+
+  return this.anuncioWhereCollection.snapshotChanges(); // mantem atualizado em realtime
+    }
 
 
 // ---------------------------------------------------------------------------------

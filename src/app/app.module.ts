@@ -15,11 +15,10 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NgxOneSignalModule } from 'ngx-onesignal';
 import * as Sentry from "@sentry/browser";
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireFunctionsModule, ORIGIN } from '@angular/fire/functions';
-
+import { AngularFireAnalyticsModule, ScreenTrackingService } from '@angular/fire/analytics';
 
 /**Configurations.*/
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = { };
@@ -43,14 +42,6 @@ Sentry.init({
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    NgxOneSignalModule.forRoot({
-      appId: "42e5d5f4-7b2a-4f2e-b6e2-ded7139361b5",
-      allowLocalhostAsSecureOrigin: true,
-      autoRegister: false,
-      notifyButton: {
-        enabled: true,
-      },
-    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -61,17 +52,16 @@ Sentry.init({
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireFunctionsModule,
+    AngularFireAnalyticsModule,
     MatSnackBarModule,
     NgxMaskModule.forRoot(options),
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ServiceWorkerModule.register('OneSignalSDKWorker.js', {
-      enabled: environment.production,
-    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     DeviceDetectorModule.forRoot(),
     NgGhostsLoadingModule
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} },
+    ScreenTrackingService
     // { provide: ORIGIN, useValue: 'https://us-central1-delivery-dash-teste3.cloudfunctions.net' }
     // { provide: ErrorHandler, useClass: SentryErrorHandler }
   ], // https://github.com/angular/angularfire2/issues/1993

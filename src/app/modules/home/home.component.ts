@@ -72,8 +72,12 @@ export class HomeComponent implements OnInit {
 
   private end: Subject<boolean> = new Subject();
 
-  public categorias = ['COMIDAS', 'PRODUTOS', 'SERVIÇOS', 'OUTROS'];
-  public categoria = 'Presente'
+  public categorias = [
+    { cod: 'produto', titulo: 'PRODUTOS'},
+    { cod: 'servico', titulo: 'SERVIÇOS'},
+    { cod: 'marketplace', titulo: 'MARKETPLACE'},
+  ];
+  public categoria = 'produto'
   public anuncios: Anuncio[]
   public variavelAnimaMaisDetalhes = true;
  
@@ -81,13 +85,13 @@ export class HomeComponent implements OnInit {
     private anuncioService: AnuncioService,
     private router: Router
     ) { window.scrollTo( 0, 0 );
-      this.iniciandoListaAnuncios()
+      this.iniciandoListaAnuncios(this.categoria)
     }
 
   ngOnInit() { }
   //Buscando no BD, aindá não adicionei o filtro de categoria
   iniciandoListaAnuncios(categoria?: string){
-      this.anuncioService.getAnuncios().pipe(takeUntil(this.end)).subscribe(res => {
+      this.anuncioService.getAnunciosWhere(categoria).pipe(takeUntil(this.end)).subscribe(res => {
         this.anuncios = res.map(e => {
           return {
             uid: e.payload.doc.id,
@@ -105,19 +109,18 @@ export class HomeComponent implements OnInit {
           };
         });
         this.anuncios.sort((a, b) => (a.categoria < b.categoria) ? -1 : 1);
-        console.log(this.anuncios);
       });
   }
 
   
-  escolhendoCategoria(categoriaEscolhida: any){
-    this.iniciandoListaAnuncios(categoriaEscolhida)
-    console.log('escolhido', categoriaEscolhida);
-    this.categoria = categoriaEscolhida;
-    console.log(this.categoria);
-    // this.router.navigate(['/story', categoriaEscolhida]);
-    // this.router.navigate(['/stories', categoriaEscolhida]);
-  }
+  // escolhendoCategoria(categoriaEscolhida: any){
+  //   this.iniciandoListaAnuncios(categoriaEscolhida)
+  //   // console.log('escolhido', categoriaEscolhida);
+  //   // this.categoria = categoriaEscolhida;
+  //   // console.log(this.categoria);
+  //   // this.router.navigate(['/story', categoriaEscolhida]);
+  //   // this.router.navigate(['/stories', categoriaEscolhida]);
+  // }
 
   // para correr as imagens do anuncio
   proximaImagemAnuncio(anuncio: any){
