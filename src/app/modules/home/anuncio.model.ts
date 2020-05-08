@@ -11,6 +11,7 @@ export interface Anuncio {
     img?:[string],
     titulo?: string,
     entrega?: string, 
+    formaPagamento?: string,
   };
   itens?: [{
     ordem: string,

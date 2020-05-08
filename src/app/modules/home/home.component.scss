@@ -8,12 +8,11 @@ main {
   max-width: 1300px;
 }
 
-.carregando{
-  height: 100%; 
-  width: 100%; 
-  padding-top: 150px; 
-  padding-block-end: 500px;
+.container-categorias {
+  width: 100%;
+  margin: 4px 0px;
 }
+
 p {
   margin: 0px;
 }
@@ -40,7 +39,7 @@ p, span, mat-card-title,button, mat-card-subtitle {
 
   //anuncios
 .mat-card-anuncios {
-  margin: 0px;
+  margin: 5px 3px;
   width: 400px;
   // height: 120px;
   padding: 10px;
@@ -90,14 +89,9 @@ p, span, mat-card-title,button, mat-card-subtitle {
 
 // celular
 @media screen and (max-width: 599px) {
- 
-  .carregando{
-    padding-top: 100px; 
-    padding-block-end: 300px;
-  }
 
   .mat-card-anuncios {
-    margin: 1px 0px;
+    margin: 8px 0px;
     width: 100%;
     padding: 0px;
   }
@@ -105,6 +99,7 @@ p, span, mat-card-title,button, mat-card-subtitle {
   .container-lista {
     width: 100%;
   }
+
 
 }
 
