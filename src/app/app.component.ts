@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ColorPickerService } from './core/services/color-picker.service';
-import { OneSignalService } from 'ngx-onesignal';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +10,6 @@ import { OneSignalService } from 'ngx-onesignal';
 export class AppComponent implements OnInit {
   constructor(
     private colorPicker: ColorPickerService,
-    public readonly onesignal: OneSignalService
     ) {
     this.themeClass = this.colorPicker.getColorClass();
   }

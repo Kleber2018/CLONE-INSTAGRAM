@@ -3,21 +3,18 @@
 
     <article
       fxLayout="row wrap"
-      fxLayoutAlign="center center"
-      class="container-lista">
-        <section fxFlex="25%" fxLayoutAlign="space-between start" fxLayout="column" *ngFor="let categoria of categorias">
-          <button fxFlex="100%" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="escolhendoCategoria(categoria)">
-            <!-- <div fxLayoutAlign="center center" class="img-card-content">
-              <img mat-card-md-image height="30px"  src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de" alt="Imagem da empresa" class="img-card-emp">
-            </div> -->
-            <p class="card-tx-nome" style="font-size: 11px">{{categoria}}</p>
+      fxLayoutAlign="start center"
+      class="container-categorias">
+        <section fxFlex="33.3%" fxLayoutAlign="start center" fxLayout="column" *ngFor="let categoria of categorias">
+          <button fxFlex="100%" style="width: 100%; padding: 7px 0px;" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="iniciandoListaAnuncios(categoria.cod)">
+            <p class="card-tx-nome" style="font-size: 11px">{{categoria.titulo}}</p>
           </button>
         </section>
     </article>
 
     <article
       fxLayout="row wrap"
-      fxLayoutAlign="start center"
+      fxLayoutAlign="center"
       class="container-lista"
       style="margin-top: 10px;">
         <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let anuncio of anuncios">
@@ -48,6 +45,7 @@
                   <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
                   <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
                 </div>
+                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.formaPagamento}}</p>
                 <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
               </div>
               <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
