@@ -27,26 +27,26 @@
                 </div>
               </div> -->
 
-              <div fxFlex="100%" *ngIf="anuncio.anuncio.img">
+              <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
                 <div fxLayoutAlign="end" class="badge-img-div">
-                  <p class="badge-img">{{anuncio.anuncio.img.length}}</p>
+                  <p class="badge-img">{{anuncio.conteudo.img.length}}</p>
                 </div>
 
-                <img  width='100%' src="{{anuncio.anuncio.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
+                <img  width='100%' src="{{anuncio.conteudo.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
               </div>
             </div>
             
             <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
-              <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.anuncio.titulo}}</p>
+              <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.conteudo.titulo}}</p>
 
               <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
-                <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.anuncio.descricao}}</p>
+                <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
                 <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
                   <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
                   <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
                 </div>
-                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.formaPagamento}}</p>
-                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.anuncio.entrega}}</p>
+                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.formaPagamento}}</p>
+                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.entrega}}</p>
               </div>
               <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
               <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
@@ -56,8 +56,8 @@
                 style="font-size: 17px; margin-top: 5px; margin-block-end: 3px;" 
                 fxLayout="row"
                 mat-raised-button
-                *ngIf="anuncio.anuncio.whatsApp"
-                (click)="escolhendoAnuncioWhatsApp(anuncio.anuncio.whatsApp, anuncio.anuncio.titulo)">
+                *ngIf="anuncio.conteudo.whatsApp"
+                (click)="escolhendoAnuncioWhatsApp(anuncio.conteudo.whatsApp, anuncio.conteudo.titulo)">
                   <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
                   Envie uma mensagem
                 </button>

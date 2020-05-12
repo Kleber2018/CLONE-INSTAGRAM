@@ -8,6 +8,7 @@ h4, a, p, span {
   font-size: 87%;
   color: grey;
   padding-top: 110px;
+  background-color: rgba(231, 192, 133, 0.247);
   /* background-color: #177649; */
 }
 

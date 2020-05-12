@@ -53,9 +53,10 @@ export class AnuncioService {
 
      // GET TODOS OS ANUNCIOS da categoria   //2-pendende, 3-aceito, 4-cancelado, 4-finalizado
      public getAnunciosWhere(categoria: string) {
+       console.log('teste', categoria)
       this.anuncioWhereCollection = this.where.collection('anuncio', ref => ref
-        .where('categoria', '==', categoria)
-        .where('status', '==', '3-ativo')
+        .where('conteudo.categoria', '==', categoria)
+        // .where('status', '==', '3-ativo')
         );
 
   return this.anuncioWhereCollection.snapshotChanges(); // mantem atualizado em realtime
