@@ -96,11 +96,8 @@ export class HomeComponent implements OnInit {
           return {
             uid: e.payload.doc.id,
             usuario: e.payload.doc.data().usuario,
-            empresaNome: e.payload.doc.data().empresaNome,
-            categoria: e.payload.doc.data().categoria,
-            ordem: e.payload.doc.data().ordem,
-            funcionamento: e.payload.doc.data().funcionamento,
-            anuncio: e.payload.doc.data().anuncio,
+            companyInformation: e.payload.doc.data().companyInformation,
+            conteudo: e.payload.doc.data().conteudo,
             itens: e.payload.doc.data().itens,
             status: e.payload.doc.data().status,
             createdAt: e.payload.doc.data().status,
@@ -108,7 +105,8 @@ export class HomeComponent implements OnInit {
             ocultardetalhes: false
           };
         });
-        this.anuncios.sort((a, b) => (a.categoria < b.categoria) ? -1 : 1);
+        console.log(this.anuncios)
+        this.anuncios.sort((a, b) => (a.createdAt.seconds < b.createdAt.seconds) ? -1 : 1);
       });
   }
 
@@ -125,7 +123,7 @@ export class HomeComponent implements OnInit {
   // para correr as imagens do anuncio
   proximaImagemAnuncio(anuncio: any){
     var indexAnuncio = this.anuncios.indexOf(anuncio)
-    if(this.anuncios[indexAnuncio].anuncio.img.length >= (this.anuncios[indexAnuncio].indexImg+2)){
+    if(this.anuncios[indexAnuncio].conteudo.img.length >= (this.anuncios[indexAnuncio].indexImg+2)){
       this.anuncios[indexAnuncio].indexImg = this.anuncios[indexAnuncio].indexImg + 1;
     } else {
       this.anuncios[indexAnuncio].indexImg = 0;
