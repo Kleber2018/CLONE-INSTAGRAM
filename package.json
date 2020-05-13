@@ -26,6 +26,7 @@
     "@angular/router": "^8.2.14",
     "@angular/service-worker": "^8.2.14",
     "@gugadev/wc-stories": "^1.0.0",
+    "@ngmodule/material-carousel": "^0.6.0",
     "@sentry/browser": "^5.14.2",
     "@webcomponents/custom-elements": "^1.4.1",
     "fingerprintjs2": "^2.1.0",

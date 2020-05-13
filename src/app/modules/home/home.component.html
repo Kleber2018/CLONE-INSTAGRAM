@@ -26,14 +26,18 @@
                   <img width='100%' src="{{img}}" alt="Imagem do anuncio">
                 </div>
               </div> -->
+              <!-- <app-header [title]="'Dashboard de Gestores'" [iconName]="'dashboard'"></app-header> -->
+              <app-carousel style="width: 100%; height: 100%px;" [imgs]=anuncio.conteudo.img ></app-carousel>
 
-              <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
+              <!-- <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
+
+
                 <div fxLayoutAlign="end" class="badge-img-div">
                   <p class="badge-img">{{anuncio.conteudo.img.length}}</p>
                 </div>
 
                 <img  width='100%' src="{{anuncio.conteudo.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
-              </div>
+              </div> -->
             </div>
             
             <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
@@ -53,11 +57,11 @@
               <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
                 <button  
                 fxLayoutAlign="end end"
-                style="font-size: 17px; margin-top: 5px; margin-block-end: 3px;" 
+                style="font-size: 16px; margin-top: 5px; margin-block-end: 3px;" 
                 fxLayout="row"
                 mat-raised-button
-                *ngIf="anuncio.conteudo.whatsApp"
-                (click)="escolhendoAnuncioWhatsApp(anuncio.conteudo.whatsApp, anuncio.conteudo.titulo)">
+                *ngIf="anuncio.companyInformation.whatsApp"
+                (click)="escolhendoAnuncioWhatsApp(anuncio.companyInformation.whatsApp, anuncio.conteudo.titulo)">
                   <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
                   Envie uma mensagem
                 </button>

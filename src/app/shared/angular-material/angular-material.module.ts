@@ -34,6 +34,8 @@ import { MatDividerModule } from '@angular/material/divider';
 
 /**Data Table.*/
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule, MatTooltipModule } from '@angular/material';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   imports: [
@@ -69,7 +71,11 @@ import { MatTableModule } from '@angular/material/table';
     MatDividerModule,
 
     /**Data Table.*/
-    MatTableModule
+    MatTableModule,
+    
+    MatSnackBarModule,
+    MatTooltipModule,
+    // MatCarouselModule.forRoot()
   ],
   exports: [
     /**Navigation.*/
@@ -99,7 +105,10 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
 
     /**Data Table.*/
-    MatTableModule
+    MatTableModule,
+
+    MatSnackBarModule,
+    MatTooltipModule
   ]
 })
 export class AngularMaterialModule { }

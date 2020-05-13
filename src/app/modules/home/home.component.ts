@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { trigger, transition, animate, style, keyframes, state } from '@angular/animations';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -105,7 +106,6 @@ export class HomeComponent implements OnInit {
             ocultardetalhes: false
           };
         });
-        console.log(this.anuncios)
         this.anuncios.sort((a, b) => (a.createdAt.seconds < b.createdAt.seconds) ? -1 : 1);
       });
   }

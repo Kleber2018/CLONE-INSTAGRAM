@@ -1,0 +1,61 @@
+// /* h4, a, p, span {
+//   font-family: 'Nunito', sans-serif;
+// }
+
+// .footer {
+//   width: 100%;
+//   padding-block-end: 30px;
+//   font-size: 87%;
+//   color: grey;
+//   padding-top: 110px;
+//   background-color: rgba(231, 192, 133, 0.247);
+//   /* background-color: #177649; */
+// }
+
+
+
+// /* // celular */
+// @media screen and (max-width: 959px) {
+//   /* .footer {
+//     margin-block-end: 120px;
+//   } */
+// } */
+
+
+.demo {
+  &-code {
+    font-family: "Roboto Mono";
+  }
+
+  &-container {
+    padding: 15px;
+  }
+
+  &-source {
+    margin-left: 15px;
+  }
+
+  &-spacer {
+    flex: 1 1 auto;
+  }
+
+  &-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+  }
+
+  &-margin {
+    margin: 0 10px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  &-carousel {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
