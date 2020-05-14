@@ -25,6 +25,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = { };
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgGhostsLoadingModule} from 'ng-ghosts-loading';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 Sentry.init({
   dsn: "https://71fdd8234c5046349be0f7c21d40ad08@sentry.io/4294967"
@@ -57,7 +59,9 @@ Sentry.init({
     NgxMaskModule.forRoot(options),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     DeviceDetectorModule.forRoot(),
-    NgGhostsLoadingModule
+    NgGhostsLoadingModule,
+    MatCarouselModule.forRoot()
+
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} },

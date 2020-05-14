@@ -16,10 +16,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   private end: Subject<boolean> = new Subject();
 
-  // @Input() public sidenavItems: SidenavItem[] = [];
 
   constructor(
-    // private authenticationService: AuthenticationService,
     private router: Router,
     private colorPicker: ColorPickerService,
   ) { }
