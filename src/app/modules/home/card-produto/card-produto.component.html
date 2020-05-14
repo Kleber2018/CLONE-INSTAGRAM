@@ -1,0 +1,53 @@
+<mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start">
+  <div style="width: 100%;" fxLayout="row">
+    <!-- <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
+      <div fxFlex="100%" >
+        <img width='100%' src="{{img}}" alt="Imagem do anuncio">
+      </div>
+    </div> -->
+    <!-- <app-header [title]="'Dashboard de Gestores'" [iconName]="'dashboard'"></app-header> -->
+    <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
+
+    <!-- <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
+
+
+      <div fxLayoutAlign="end" class="badge-img-div">
+        <p class="badge-img">{{anuncio.conteudo.img.length}}</p>
+      </div>
+
+      <img  width='100%' src="{{anuncio.conteudo.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
+    </div> -->
+  </div>
+  <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
+    <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.conteudo.titulo}}</p>
+
+    <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
+      <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
+      <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
+        <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
+        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco, card-txt-desc-anunc">{{item.preco  | currency:'BRL':'R$ '}}</p>
+      </div>
+      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.formaPagamento}}</p>
+      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.entrega}}</p>
+    </div>
+    <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
+    <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
+    <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
+      <button  
+      fxLayoutAlign="end end"
+      style="font-size: 16px; margin-top: 5px; margin-block-end: 3px;" 
+      fxLayout="row"
+      mat-raised-button
+      *ngIf="anuncio.companyInformation.whatsApp"
+      (click)="escolhendoAnuncioWhatsApp(anuncio.companyInformation.whatsApp, anuncio.conteudo.titulo)">
+        <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
+        Envie uma mensagem
+      </button>
+    </div>
+  </mat-card-content>
+    <!-- avaliacao -->
+    <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
+        <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>
+        <p fxLayoutAlign="start start" style="font-size: 97%; margin: 0px; padding: 0px;">4,6</p>
+    </div> -->
+  </mat-card>

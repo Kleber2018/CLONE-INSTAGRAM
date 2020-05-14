@@ -1,0 +1,47 @@
+  p {
+    margin: 0px;
+  }
+  p, span, mat-card-title,button, mat-card-subtitle {
+    font-family: 'Nunito', sans-serif;
+  }  
+  
+  //anuncios
+  .mat-card {
+    margin: 5px 3px;
+    width: 400px;
+    // height: 120px;
+    padding: 10px;
+  }
+
+  .mais-menos-detalhes{
+    margin: 5px 0px; 
+    opacity: 0.6; 
+    font-size: 97%;
+  }
+  
+  
+  .card-content-desc-anunc{
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  .card-txt-desc-anunc {
+    font-size: 16px;
+    opacity: 0.9;
+    padding-top: 2px;
+  }
+
+  .txt-preco {
+    color: brown; 
+    font-weight: bold; 
+    margin-right: 8px;
+  }
+
+  // celular
+@media screen and (max-width: 599px) {
+  .mat-card {
+    margin: 8px 0px;
+    width: 100%;
+    padding: 0px;
+  }
+}

@@ -18,9 +18,6 @@ import { fn } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  private static readonly INSTALL_TEXT =
-  'npm install @ngmodule/material-carousel';
-
 
   @Input() public imgs = [''];
 

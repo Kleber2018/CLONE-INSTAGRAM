@@ -16,8 +16,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { LayoutComponent } from './layout/layout.component';
+import { CarouselComponent } from '../modules/home/carousel/carousel.component';
+
 import { MatButtonToggleModule } from '@angular/material';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { NgxMaskModule } from 'ngx-mask';
@@ -37,8 +37,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     FooterComponent,
-    CarouselComponent,
-    LayoutComponent,
     AlertDialogComponent,
     HeaderComponent
   ],
@@ -51,7 +49,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatButtonToggleModule,
     NgxMaskModule,
-    MatCarouselModule.forRoot()
+
     // MatCarouselSlideComponent,
     // MatCarouselComponent
     // ButtonModule
@@ -61,11 +59,8 @@ import { FormsModule } from '@angular/forms';
     // MatCarouselComponent,
     AngularMaterialModule,
     FlexLayoutModule,
-    // ButtonModule,
     FooterComponent,
-    HeaderComponent,
-    CarouselComponent,
-    LayoutComponent,
+    HeaderComponent
   ],
   entryComponents: [
     AlertDialogComponent
