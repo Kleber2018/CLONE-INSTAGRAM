@@ -134,6 +134,11 @@ atualizar package e bibliote do projeto:
    **Fantasma - ng-ghosts**
    https://github.com/SergioNoivak/ng-ghosts-loading
 
+   carousel
+   https://gsr.dev/material2-carousel/
+   
+   https://www.primefaces.org/primeng/showcase/#/carousel
+
 
 ## DESIGNER
 

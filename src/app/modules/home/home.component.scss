@@ -171,3 +171,15 @@ p, span, mat-card-title,button, mat-card-subtitle {
   padding-top: 35px;
   padding-left: 12px
 }
+
+
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .card {
+    display: inline-block;
+  }
+}
