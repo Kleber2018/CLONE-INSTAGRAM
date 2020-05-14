@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnuncioService } from './anuncio.service';
 import { Anuncio } from './anuncio.model';
@@ -77,6 +77,7 @@ export class HomeComponent implements OnInit {
     { cod: 'produto', titulo: 'PRODUTOS'},
     { cod: 'servico', titulo: 'SERVIÇOS'},
     { cod: 'comida', titulo: 'COMIDAS'},
+    { cod: 'story', titulo: 'STORYS'}
   ];
   public categoria = 'produto'
   public anuncios: Anuncio[]
@@ -84,7 +85,8 @@ export class HomeComponent implements OnInit {
  
   constructor(
     private anuncioService: AnuncioService,
-    private router: Router
+    private router: Router,
+    
     ) { window.scrollTo( 0, 0 );
       this.iniciandoListaAnuncios(this.categoria)
     }
@@ -92,6 +94,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
   //Buscando no BD, aindá não adicionei o filtro de categoria
   iniciandoListaAnuncios(categoria?: string){
+
+    if(categoria == 'story'){
+      this.router.navigate(['/story', 'teste']);
+    } else {
       this.anuncioService.getAnunciosWhere(categoria).pipe(takeUntil(this.end)).subscribe(res => {
         this.anuncios = res.map(e => {
           return {
@@ -108,6 +114,8 @@ export class HomeComponent implements OnInit {
         });
         this.anuncios.sort((a, b) => (a.createdAt.seconds < b.createdAt.seconds) ? -1 : 1);
       });
+    }
+
   }
 
   

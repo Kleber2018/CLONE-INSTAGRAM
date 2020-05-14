@@ -15,6 +15,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
+
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
 import {ScrollingModule} from '@angular/cdk/scrolling';

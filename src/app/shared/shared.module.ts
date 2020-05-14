@@ -13,6 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // import { ButtonModule } from './button/button.module';
 
 /**Components.*/
+
+import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -38,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     CarouselComponent,
     LayoutComponent,
     AlertDialogComponent,
+    HeaderComponent
   ],
   imports: [
     FormsModule,
@@ -60,6 +63,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     // ButtonModule,
     FooterComponent,
+    HeaderComponent,
     CarouselComponent,
     LayoutComponent,
   ],
