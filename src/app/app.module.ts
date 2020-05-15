@@ -26,6 +26,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgGhostsLoadingModule} from 'ng-ghosts-loading';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { CarouselModule } from 'primeng/carousel/primeng-carousel';
 
 
 Sentry.init({
@@ -60,8 +61,7 @@ Sentry.init({
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     DeviceDetectorModule.forRoot(),
     NgGhostsLoadingModule,
-    MatCarouselModule.forRoot()
-
+    MatCarouselModule.forRoot(),
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} },

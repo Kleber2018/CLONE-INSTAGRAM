@@ -13,7 +13,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
+import {CarouselModule} from 'primeng/carousel';
 
 
 /**Modules.*/
@@ -46,7 +46,8 @@ import { CardProdutoComponent } from './card-produto/card-produto.component';
     MatProgressSpinnerModule,
     ScrollingModule,
     MatBadgeModule,
-    MatCarouselModule.forRoot()
+    MatCarouselModule.forRoot(),
+    CarouselModule
   ],
   exports: [
     CarouselComponent,

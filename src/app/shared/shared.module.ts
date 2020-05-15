@@ -16,7 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CarouselComponent } from '../modules/home/carousel/carousel.component';
+// import { CarouselComponent } from '../modules/home/carousel/carousel.component';
 
 import { MatButtonToggleModule } from '@angular/material';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
@@ -31,8 +31,13 @@ import {
   MatCarouselModule
 } from '@ngmodule/material-carousel';
 import { FormsModule } from '@angular/forms';
-
-
+import { CarouselModule } from 'primeng/carousel';
+import {ToastModule} from 'primeng/toast';
+import {TabViewModule} from 'primeng/tabview';
+import {CodeHighlighterModule} from 'primeng/codehighlighter';
+import {ButtonModule} from 'primeng/button';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,11 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatButtonToggleModule,
     NgxMaskModule,
+    CarouselModule,
+    ToastModule,
+    TabViewModule,
+    CodeHighlighterModule,
+    ButtonModule
 
     // MatCarouselSlideComponent,
     // MatCarouselComponent

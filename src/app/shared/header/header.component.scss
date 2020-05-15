@@ -1,14 +1,19 @@
-.header {
-  padding: 0px 6px;
-  margin: 3px 10px;
+.container {
+  max-width: 40%;
+  margin: 0 auto;
 }
-
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-
-  .card {
-    display: inline-block;
-  }
+.ui-carousel-page-links {
+  display: none;
+}
+button {
+  width: 80%;
+}
+.mat-card-actions, .mat-card-content, .mat-card-title {
+  margin-bottom: 0px;
+}
+body .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {
+  border: 0 !important;
+}
+body .ui-carousel .ui-carousel-viewport {
+  border: 0;
 }

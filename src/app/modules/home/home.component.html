@@ -1,38 +1,9 @@
   <main fxLayout="column"  fxLayoutAlign="start center">
 
-    <!-- <div class="barra-horizontal">
-      <img src="http://lorempixel.com/150/150/people/0/a/">
-      <img src="http://lorempixel.com/150/150/people/0/b/">
-      <img src="http://lorempixel.com/150/150/people/0/c/">
-      <img src="http://lorempixel.com/150/150/people/0/d/">
-      <img src="http://lorempixel.com/150/150/people/0/e/">
-      <img src="http://lorempixel.com/150/150/people/0/f/">
-    </div> -->
+    <article style="width: 100%;" *ngIf="anuncios">
+      <app-header style="width: 100%;" [anuncios]=anuncios></app-header>
+    </article>
 
-        <!-- <article
-      fxLayout="row wrap"
-      fxLayoutAlign="start center"
-      class="container-categorias">
-        <section fxFlex="33.3%" fxLayoutAlign="start center" fxLayout="column" *ngFor="let categoria of categorias" >
-          <button fxFlex="100%" style="width: 100%; padding: 7px 0px;" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="iniciandoListaAnuncios(categoria.cod)">
-            <p class="card-tx-nome" style="font-size: 11px">{{categoria.titulo}}</p>
-          </button>
-        </section>
-    </article> -->
-    <!-- <article style="width: 100%;">
-      <div class="scrolling-wrapper">
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-      </div>
-    <app-header style="width: 100%;" [categorias]=categorias ></app-header>
-    </article> -->
     <article style="width: 100%;">
       <!-- <app-header style="width: 100%;" [categorias]=categorias ></app-header> -->
       <div class="scrolling-wrapper" fxLayoutAlign="center"  >
@@ -43,13 +14,6 @@
         </div>
       </div>
     </article>
-
-    <!-- .custom-slider-main{
-      display: flex;
-      overflow: hidden;    
-      scroll-behavior: smooth;
-    } -->
-
     <!-- <article
       fxLayout="row wrap"
       fxLayoutAlign="start center"
@@ -60,6 +24,9 @@
           </button>
         </section>
     </article> -->
+
+
+    
 
     <article
       fxFlex="100%"

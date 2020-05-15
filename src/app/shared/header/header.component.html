@@ -1,18 +1,46 @@
-<header fxLayout="row" class="header" fxLayoutAlign="space-between center">
-  <div class="scrolling-wrapper">
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-    <div class="card"><h2>Card</h2></div>
-  </div>
+<section *ngIf="stories">
+  <p-carousel [value]="stories" [numVisible]="3"  [circular]="true" [responsiveOptions]="responsiveOptions">
+    <ng-template let-anuncio pTemplate="item">
+      <img width="100px" src="{{anuncio}}" (click)="selecionandoImg(anuncio)"/>
+    </ng-template>
+  </p-carousel>
 
-</header>
 
+<!-- <p-carousel [numVisible]="2" [numScroll]="3" [circular]="false" >
+  <div ngf>
+
+  </div> -->
+
+                  
+           
+                  <!-- <p>{{anuncio.companyInformation.empresaNome}}</p> -->
+                 
+                    <!-- <button  mat-stroked-button>Início</button>
+           
+  </ng-template>
+</p-carousel> -->
+<!-- <div *ngIf="stories" class="container">
+  <mat-card>
+    <mat-card-title>testando</mat-card-title>
+    <mat-card-content>
+      <p-carousel headerText="texto" [value]="stories" numVisible="2">
+        <ng-template style="text-align: center;" let-image pTemplate="image">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex>
+              <img fxFlexFill src="{{image}}">
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="'teste'" type="button" fxFlex mat-stroked-button color="warn">Take Quiz!</button>
+    </mat-card-actions>
+  </mat-card>
+</div> -->
+
+
+</section>
 
 
 

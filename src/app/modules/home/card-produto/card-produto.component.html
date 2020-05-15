@@ -1,22 +1,22 @@
 <mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start" *ngIf="anuncio">
-  <p class="txt-titulo" style="margin-top: 5px;">{{anuncio.companyInformation.empresaNome}}
+  <p class="txt-nome-empresa txt-descricao">{{anuncio.companyInformation.empresaNome}}</p>
   <div style="width: 100%;" fxLayout="row">
     <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
   </div>
   <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
-    <p class="txt-titulo">{{anuncio.conteudo.titulo}}</p>
+    <p class="txt-titulo txt-descricao ">{{anuncio.conteudo.titulo}}</p>
 
     <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
-      <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
+      <p class="txt-descricao" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
       <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
-        <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
-        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco, card-txt-desc-anunc">{{item.preco  | currency:'BRL':'R$ '}}</p>
+        <p fxFlex="75%" class="txt-descricao" style="margin-left: 10px;">{{item.titulo}}</p>
+        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco, txt-descricao">{{item.preco  | currency:'BRL':'R$ '}}</p>
       </div>
-      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.companyInformation.formaPagamento}}</p>
-      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.companyInformation.entrega}}</p>
+      <p class="txt-descricao" style="margin-top: 5px;">{{anuncio.companyInformation.formaPagamento}}</p>
+      <p class="txt-descricao" style="margin-top: 5px;">{{anuncio.companyInformation.entrega}}</p>
     </div>
-    <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
-    <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
+    <p class="txt-descricao, mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
+    <p class="txt-descricao, mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
     <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
       <button  
       fxLayoutAlign="end end"

@@ -40,6 +40,8 @@
     "ngx-material-file-input": "^2.0.0",
     "ngx-onesignal": "^8.0.1",
     "nunito-fontface": "^0.7.3",
+    "primeicons": "^3.0.0-rc.1",
+    "primeng": "^9.0.6",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
