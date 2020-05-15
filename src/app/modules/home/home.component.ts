@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
   ];
   public categoria = 'produto'
   public anuncios: Anuncio[]
-  public variavelAnimaMaisDetalhes = true;
+
  
   constructor(
     private anuncioService: AnuncioService,
@@ -129,14 +129,14 @@ export class HomeComponent implements OnInit {
   // }
 
   // para correr as imagens do anuncio
-  proximaImagemAnuncio(anuncio: any){
-    var indexAnuncio = this.anuncios.indexOf(anuncio)
-    if(this.anuncios[indexAnuncio].conteudo.img.length >= (this.anuncios[indexAnuncio].indexImg+2)){
-      this.anuncios[indexAnuncio].indexImg = this.anuncios[indexAnuncio].indexImg + 1;
-    } else {
-      this.anuncios[indexAnuncio].indexImg = 0;
-    }
-  }
+  // proximaImagemAnuncio(anuncio: any){
+  //   var indexAnuncio = this.anuncios.indexOf(anuncio)
+  //   if(this.anuncios[indexAnuncio].conteudo.img.length >= (this.anuncios[indexAnuncio].indexImg+2)){
+  //     this.anuncios[indexAnuncio].indexImg = this.anuncios[indexAnuncio].indexImg + 1;
+  //   } else {
+  //     this.anuncios[indexAnuncio].indexImg = 0;
+  //   }
+  // }
 
   // animaMaisDetalhes(): void {
   //   console.log(this.variavelAnimaMaisDetalhes)
@@ -144,15 +144,7 @@ export class HomeComponent implements OnInit {
   //   console.log(this.variavelAnimaMaisDetalhes)
   // }
 
-  escolhendoAnuncioWhatsApp(whatsApp: string, produto: string){
-    // terminar de desenvolver o gerador de link whatsApp
-    var txtPadrao = "Olá, estou interessado por "+produto+" do Shopping Jd Veneza";
-    var txtPadraoExplodido = txtPadrao.split(" ");
-    
-    var link = 'http://api.whatsapp.com/send?1=pt_BR&phone=55'+whatsApp+'&text='+txtPadraoExplodido.join('%20')
-    window.open(link, "_blank");
-      // this.router.navigate(['http://api.whatsapp.com/send?1=pt_BR&phone=5542988572209&text=Olá%20me%20interessei%20pela%20camiseta%20do%20Shopping%20Veneza']);
-  }
+  
 
   openThemeMenu() {}
 

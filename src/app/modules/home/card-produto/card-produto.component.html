@@ -1,25 +1,10 @@
-<mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start">
+<mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start" *ngIf="anuncio">
+  <p class="txt-titulo" style="margin-top: 5px;">{{anuncio.companyInformation.empresaNome}}
   <div style="width: 100%;" fxLayout="row">
-    <!-- <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
-      <div fxFlex="100%" >
-        <img width='100%' src="{{img}}" alt="Imagem do anuncio">
-      </div>
-    </div> -->
-    <!-- <app-header [title]="'Dashboard de Gestores'" [iconName]="'dashboard'"></app-header> -->
     <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
-
-    <!-- <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
-
-
-      <div fxLayoutAlign="end" class="badge-img-div">
-        <p class="badge-img">{{anuncio.conteudo.img.length}}</p>
-      </div>
-
-      <img  width='100%' src="{{anuncio.conteudo.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
-    </div> -->
   </div>
   <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
-    <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.conteudo.titulo}}</p>
+    <p class="txt-titulo">{{anuncio.conteudo.titulo}}</p>
 
     <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
       <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
@@ -27,8 +12,8 @@
         <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
         <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco, card-txt-desc-anunc">{{item.preco  | currency:'BRL':'R$ '}}</p>
       </div>
-      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.formaPagamento}}</p>
-      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.entrega}}</p>
+      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.companyInformation.formaPagamento}}</p>
+      <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.companyInformation.entrega}}</p>
     </div>
     <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
     <p class="card-txt-desc-anunc, mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
