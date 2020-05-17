@@ -38,6 +38,7 @@ import {CodeHighlighterModule} from 'primeng/codehighlighter';
 import {ButtonModule} from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NguCarouselModule } from '@ngu/carousel';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastModule,
     TabViewModule,
     CodeHighlighterModule,
-    ButtonModule
+    ButtonModule,
+    NguCarouselModule
 
     // MatCarouselSlideComponent,
     // MatCarouselComponent

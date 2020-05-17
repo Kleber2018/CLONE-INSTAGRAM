@@ -1,7 +1,7 @@
   <main fxLayout="column"  fxLayoutAlign="start center">
 
-    <article style="width: 100%;" *ngIf="anuncios">
-      <app-header style="width: 100%;" [anuncios]=anuncios></app-header>
+    <article style="width: 100%; max-width: 900px;" *ngIf="anuncios" fxFlexAlign="center">
+      <app-header  [anuncios]=anuncios></app-header>
     </article>
 
     <article style="width: 100%;">
@@ -13,7 +13,7 @@
           </button>
         </div>
       </div>
-    </article>
+    </article>    
     <!-- <article
       fxLayout="row wrap"
       fxLayoutAlign="start center"

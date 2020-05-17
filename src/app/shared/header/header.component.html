@@ -1,9 +1,26 @@
-<section *ngIf="stories">
-  <p-carousel [value]="stories" [numVisible]="3"  [circular]="true" [responsiveOptions]="responsiveOptions">
-    <ng-template let-anuncio pTemplate="item">
-      <img width="100px" src="{{anuncio}}" (click)="selecionandoImg(anuncio)"/>
-    </ng-template>
-  </p-carousel>
+<section *ngIf="stories"  >
+  <!-- <section>
+    <p-carousel [value]="stories" [numVisible]="3"  [circular]="true" [responsiveOptions]="responsiveOptions">
+      <ng-template let-anuncio pTemplate="item">
+        <img width="100px" src="{{anuncio}}" (click)="selecionandoImg(anuncio)"/>
+      </ng-template>
+    </p-carousel>
+  </section> -->
+
+
+
+  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="padding: 10px">
+    <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;">
+      <div class="tile" [style.background]="'url(' + item + ')'" (click)="clicandoStory(item)" >
+        <!-- <img src="{{item}}" alt="descricao" width="100%"> -->
+      </div>
+    </ngu-tile>
+
+    <!-- <ul class="myPoint" NguCarouselPoint>
+      <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+    </ul> -->
+  </ngu-carousel>
+
 
 
 <!-- <p-carousel [numVisible]="2" [numScroll]="3" [circular]="false" >

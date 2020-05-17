@@ -22,6 +22,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { CardProdutoComponent } from './card-produto/card-produto.component';
+import { NguCarouselModule } from '@ngu/carousel';
 
 
 
@@ -47,7 +48,8 @@ import { CardProdutoComponent } from './card-produto/card-produto.component';
     ScrollingModule,
     MatBadgeModule,
     MatCarouselModule.forRoot(),
-    CarouselModule
+    CarouselModule,
+    NguCarouselModule
   ],
   exports: [
     CarouselComponent,

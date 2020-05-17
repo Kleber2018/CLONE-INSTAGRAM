@@ -58,7 +58,7 @@ export class AnuncioService {
         // .where('status', '==', '3-ativo')
         );
 
-  return this.anuncioWhereCollection.snapshotChanges(); // mantem atualizado em realtime
+  return this.anuncioWhereCollection.valueChanges();
     }
 
 

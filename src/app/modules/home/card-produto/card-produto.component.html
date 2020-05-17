@@ -1,8 +1,8 @@
 <mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start" *ngIf="anuncio">
   <p class="txt-nome-empresa txt-descricao">{{anuncio.companyInformation.empresaNome}}</p>
-  <div style="width: 100%;" fxLayout="row">
-    <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
-  </div>
+
+  <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
+
   <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
     <p class="txt-titulo txt-descricao ">{{anuncio.conteudo.titulo}}</p>
 

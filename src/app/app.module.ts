@@ -28,6 +28,8 @@ import { NgGhostsLoadingModule} from 'ng-ghosts-loading';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { CarouselModule } from 'primeng/carousel/primeng-carousel';
 
+import { NguCarouselModule } from '@ngu/carousel';
+
 
 Sentry.init({
   dsn: "https://71fdd8234c5046349be0f7c21d40ad08@sentry.io/4294967"
@@ -62,6 +64,7 @@ Sentry.init({
     DeviceDetectorModule.forRoot(),
     NgGhostsLoadingModule,
     MatCarouselModule.forRoot(),
+    // NguCarouselModule
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} },

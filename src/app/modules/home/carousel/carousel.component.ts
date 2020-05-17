@@ -1,12 +1,15 @@
 
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, ElementRef, QueryList, ViewChildren, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren, OnDestroy, ChangeDetectionStrategy, Input, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   MatCarouselSlideComponent
 } from '@ngmodule/material-carousel';
 import { fn } from '@angular/compiler/src/output/output_ast';
+
+
+import { NguCarouselConfig, NguCarousel } from '@ngu/carousel';
 
 // document.addEventListener('touchstart', ontouchstart, {passive: true});
 // // document.addEventListener('touchstart', handler, {capture: true});
@@ -15,7 +18,8 @@ import { fn } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+  styleUrls: ['./carousel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarouselComponent implements OnInit {
 
@@ -23,34 +27,25 @@ export class CarouselComponent implements OnInit {
 
 
 public slidesList = new Array<never>(5);
-public showContent = false;
-
-public parentHeight = 'auto';
-public timings = '250ms ease-in';
-public autoplay = true;
-public interval = 5000;
-public loop = true;
-public hideArrows = false;
-public hideIndicators = false;
-public color: ThemePalette = 'accent';
-public maxWidth = 'auto';
-public maintainAspectRatio = true;
-public proportion = 25;
-public slideHeight = '200px';
-// public slides = this.slidesList.length;
 public slides: any[];
-public overlayColor = '#00000040';
-public hideOverlay = false;
-public useKeyboard = true;
-public useMouseWheel = false;
-public orientation = 'ltr';
-public log: string[] = [];
 
-@ViewChildren(MatCarouselSlideComponent) public carouselSlides: QueryList<
-  MatCarouselSlideComponent
->;
 
-constructor() {}
+// @ViewChildren(MatCarouselSlideComponent) public carouselSlides: QueryList<
+//   MatCarouselSlideComponent
+// >;
+// @ViewChildren('myCarousel') myCarousel: NguCarousel;
+
+public carouselConfig: NguCarouselConfig = {
+  grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+  load: 3,
+  interval: {timing: 4000, initialDelay: 1000},
+  loop: false,
+  touch: true,
+  velocity: 0.2
+};
+
+
+constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     if(this.imgs){
@@ -58,16 +53,14 @@ constructor() {}
         this.slides = this.imgs
       }
     }
+
   }
 
 
-public resetSlides(): void {
-  this.carouselSlides.forEach(item => (item.disabled = false));
-}
 
-public onChange(index: number) {
-  this.log.push(`MatCarousel#change emitted with index ${index}`);
-}
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
 
 
 }

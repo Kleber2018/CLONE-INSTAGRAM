@@ -101,13 +101,13 @@ export class HomeComponent implements OnInit {
       this.anuncioService.getAnunciosWhere(categoria).pipe(takeUntil(this.end)).subscribe(res => {
         this.anuncios = res.map(e => {
           return {
-            uid: e.payload.doc.id,
-            usuario: e.payload.doc.data().usuario,
-            companyInformation: e.payload.doc.data().companyInformation,
-            conteudo: e.payload.doc.data().conteudo,
-            itens: e.payload.doc.data().itens,
-            status: e.payload.doc.data().status,
-            createdAt: e.payload.doc.data().status,
+            uid: e.uid,
+            usuario: e.usuario,
+            companyInformation: e.companyInformation,
+            conteudo: e.conteudo,
+            itens: e.itens,
+            status: e.status,
+            createdAt: e.status,
             indexImg: 0,
             ocultardetalhes: false
           };
