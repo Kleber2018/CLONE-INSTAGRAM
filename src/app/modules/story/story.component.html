@@ -1,6 +1,19 @@
-<app-layout>
-  <main fxLayout="column" fxLayoutAlign="start center">
-    <article
+<app-layout fxLayoutAlign="center center" >
+  <main fxLayout="column" fxLayoutAlign="center center" >
+    <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="width: 100%;">
+      <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;" >
+        <div class="tile" [style.background]="'url(' + item + ')'">
+          <!-- <img src="{{item}}" alt="descricao" width="100%"> -->
+        </div>
+      </ngu-tile>
+  
+      <ul class="myPoint" NguCarouselPoint>
+        <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+      </ul>
+    </ngu-carousel>
+
+
+    <!-- <article
       fxFlex="100%"
       fxLayout="row wrap"
       fxLayoutAlign="start center"
@@ -21,6 +34,6 @@
                   WhatsApp
               </button>
           </section>
-    </article>
+    </article> -->
   </main>
 </app-layout>
