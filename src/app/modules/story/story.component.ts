@@ -17,6 +17,22 @@ import { NguCarouselConfig } from '@ngu/carousel';
   styleUrls: ['./story.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
+    trigger('btnWhatsApp',[
+      transition('* => *', [
+        animate('2s', 
+          keyframes([
+            style({ transform: 'scale(1.1)' }),
+            style({ transform: 'scale(1.2)'}),
+            style({ backgroundColor: 'orange', transform: 'scale(1.4)'}),
+            style({ backgroundColor: 'red', transform: 'scale(1.5)' }),
+            style({ backgroundColor: 'orange', transform: 'scale(1.4)'}),
+            style({ transform: 'scale(1.3)' }),
+            style({ transform: 'scale(1.2)' }),
+            style({ transform: 'scale(1.1)' }),
+            style({ transform: 'scale(1)' })
+        ]),
+      )]),
+    ]),
     trigger('animaTroca',[
       // state('iniciando', style({
       //   transform: 'scale(1)'
@@ -121,17 +137,17 @@ export class StoryComponent implements OnInit {
     console.log(this.categoria);
   }
 
-  proximoAnuncio(){
+  // proximoAnuncio(){
 
-    if(this.stories.length <= (this.indexAnuncio+1)){
-      console.log('dentro');
-      this.indexAnuncio = 0;
-      this.imgAnuncio = this.stories[this.indexAnuncio]
-    } else {
-      this.indexAnuncio = this.indexAnuncio + 1;
-      this.imgAnuncio = this.stories[this.indexAnuncio]
-    }
-  }
+  //   if(this.stories.length <= (this.indexAnuncio+1)){
+  //     console.log('dentro');
+  //     this.indexAnuncio = 0;
+  //     this.imgAnuncio = this.stories[this.indexAnuncio]
+  //   } else {
+  //     this.indexAnuncio = this.indexAnuncio + 1;
+  //     this.imgAnuncio = this.stories[this.indexAnuncio]
+  //   }
+  // }
 
   escolhendoAnuncio(){
     window.open(this.whatsApp, "_blank");

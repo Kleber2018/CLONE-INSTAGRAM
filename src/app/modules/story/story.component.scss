@@ -20,6 +20,23 @@ main {
  }
 
 
+ .tela-de-rolagem{
+  align-items: initial;
+  // min-height: calc(100vh - 110px);
+  // margin-top: -70px;
+ }
+
+ #btnpedidoflutu {
+  z-index: 2;
+  // position: fixed;
+  bottom:10px;
+  margin-top: 10px;
+  right:50%;
+  left: 50%;
+  // max-height: 750px;
+  // margin-block-end: 20px;
+}
+
  .tile {
   width: 100%; 
   height: 100vh;

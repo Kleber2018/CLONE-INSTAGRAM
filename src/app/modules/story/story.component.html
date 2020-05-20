@@ -2,8 +2,18 @@
   <main fxLayout="column" fxLayoutAlign="center center" >
     <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="width: 100%;">
       <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;" >
-        <div class="tile" [style.background]="'url(' + item + ')'">
+        <div class="tile" fxLayout="column" fxLayoutAlign="space-between" [style.background]="'url(' + item + ')'">
           <!-- <img src="{{item}}" alt="descricao" width="100%"> -->
+          <div fxFlex="100%" class="tela-de-rolagem" fxLayoutAlign="space-between">
+            <button fxFlex="10%" mat-button (click)="myCarousel.moveTo(j-1)"><mat-icon>navigate_before</mat-icon></button>
+            <button fxFlex="80%" mat-button (click)="myCarousel.moveTo(j+1)"></button>
+            <button fxFlex="10%" mat-button (click)="myCarousel.moveTo(j+1)"><mat-icon>navigate_next</mat-icon></button>
+          </div>
+
+          <div fxShow fxLayout="column"  id="btnpedidoflutu" fxLayoutAlign="center center" >
+            <button mat-flat-button  style="font-size: 101%; padding: 4px 16px; font-weight: bold;" [@btnWhatsApp]="true"> 
+              <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;">Envie uma mensagem</button>
+          </div>
         </div>
       </ngu-tile>
   

@@ -7,16 +7,19 @@
     <p class="txt-titulo txt-descricao ">{{anuncio.conteudo.titulo}}</p>
 
     <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
-      <p class="txt-descricao" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
+      <p class="txt-descricao" style="margin-block-end: 12px;" >{{anuncio.conteudo.descricao}}</p>
+
       <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
-        <p fxFlex="75%" class="txt-descricao" style="margin-left: 10px;">{{item.titulo}}</p>
-        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco, txt-descricao">{{item.preco  | currency:'BRL':'R$ '}}</p>
+
+        <p fxFlex="75%" class="txt-descricao-item">{{item.titulo}}</p>
+        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco">{{item.preco  | currency:'BRL':'R$ '}}</p>
       </div>
-      <p class="txt-descricao" style="margin-top: 5px;">{{anuncio.companyInformation.formaPagamento}}</p>
+
+      <p class="txt-descricao" style="margin-top: 12px;">{{anuncio.companyInformation.formaPagamento}}</p>
       <p class="txt-descricao" style="margin-top: 5px;">{{anuncio.companyInformation.entrega}}</p>
     </div>
-    <p class="txt-descricao, mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
-    <p class="txt-descricao, mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
+    <p class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
+    <p class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
     <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
       <button  
       fxLayoutAlign="end end"
