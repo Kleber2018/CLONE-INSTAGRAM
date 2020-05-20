@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
     { cod: 'produto', titulo: 'PRODUTOS'},
     { cod: 'servico', titulo: 'SERVIÇOS'},
     { cod: 'comida', titulo: 'COMIDAS'},
-    { cod: 'story', titulo: 'STORYS'}
+    // { cod: 'story', titulo: 'STORYS'}
   ];
   public categoria = 'produto'
   public anuncios: Anuncio[]

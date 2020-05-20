@@ -16,6 +16,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private end: Subject<boolean> = new Subject();
 
+  public empresas: [
+    {
+      empresaNome: string,
+      empresaImg: string
+      anuncios: Anuncio[],
+    }
+  ]
 
 
   public carouselConfig: NguCarouselConfig = {
@@ -46,8 +53,42 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    console.log('header', this.anuncios);
+    console.log('header antes', this.anuncios);
+
+    this.anuncios.sort((a, b) => (a.companyInformation.uid < b.companyInformation.uid) ? -1 : 1);
+
+    console.log('header depois', this.anuncios);
+
+    //criando variavel para imagens
+    this.anuncios.forEach(anuncio => {
+      if(this.empresas){
+        var naoEncontrado = true
+        for (const i in this.empresas) {
+          if (this.empresas[i].empresaNome == anuncio.companyInformation.empresaNome) {
+            this.empresas[i].anuncios.push(anuncio);
+            naoEncontrado = false            
+          }
+        }
+        if(naoEncontrado){
+          this.empresas.push({
+            empresaNome: anuncio.companyInformation.empresaNome,
+            empresaImg: "../../../assets/WhatsApp.png",
+            anuncios: [anuncio],
+          })
+        }
+      } else {
+        this.empresas = [{
+          empresaNome: anuncio.companyInformation.empresaNome,
+          empresaImg: "../../../assets/WhatsApp.png",
+          anuncios: [anuncio],
+        }]
+      }
+    });
+
+    console.log(this.empresas);
+
    }
+
    selecionandoImg(anuncio){
      console.log(anuncio)
    }
