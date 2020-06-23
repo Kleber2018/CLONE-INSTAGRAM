@@ -1,0 +1,41 @@
+<mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start" *ngIf="anuncio">
+  <p class="txt-nome-empresa txt-descricao">{{anuncio.companyInformation.empresaNome}}</p>
+
+  <app-carousel style="width: 100%;" [imgs]=anuncio.conteudo.img ></app-carousel>
+
+  <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
+    <p class="txt-titulo txt-descricao ">{{anuncio.conteudo.titulo}}</p>
+
+    <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
+      <p class="txt-descricao" style="margin-block-end: 12px;" >{{anuncio.conteudo.descricao}}</p>
+
+      <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
+
+        <p fxFlex="75%" class="txt-descricao-item">{{item.titulo}}</p>
+        <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco">{{item.preco  | currency:'BRL':'R$ '}}</p>
+      </div>
+
+      <p class="txt-descricao" style="margin-top: 12px;">{{anuncio.companyInformation.formaPagamento}}</p>
+      <p class="txt-descricao" style="margin-top: 5px;">{{anuncio.companyInformation.entrega}}</p>
+    </div>
+    <p class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
+    <p class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
+    <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
+      <button  
+      fxLayoutAlign="end end"
+      style="font-size: 16px; margin-top: 5px; margin-block-end: 3px;" 
+      fxLayout="row"
+      mat-raised-button
+      *ngIf="anuncio.companyInformation.whatsApp"
+      (click)="escolhendoAnuncioWhatsApp(anuncio.companyInformation.whatsApp, anuncio.conteudo.titulo)">
+        <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
+        Envie uma mensagem
+      </button>
+    </div>
+  </mat-card-content>
+    <!-- avaliacao -->
+    <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
+        <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>
+        <p fxLayoutAlign="start start" style="font-size: 97%; margin: 0px; padding: 0px;">4,6</p>
+    </div> -->
+  </mat-card>

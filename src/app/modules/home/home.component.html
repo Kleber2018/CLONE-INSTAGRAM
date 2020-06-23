@@ -1,39 +1,20 @@
-<app-layout>
-  <main fxLayout="column" fxLayoutAlign="start center">
+  <main fxLayout="column"  fxLayoutAlign="start center">
 
-        <!-- <article
-      fxLayout="row wrap"
-      fxLayoutAlign="start center"
-      class="container-categorias">
-        <section fxFlex="33.3%" fxLayoutAlign="start center" fxLayout="column" *ngFor="let categoria of categorias" >
-          <button fxFlex="100%" style="width: 100%; padding: 7px 0px;" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="iniciandoListaAnuncios(categoria.cod)">
+    <article style="width: 100%; max-width: 900px;" *ngIf="anuncios" fxFlexAlign="center">
+      <app-header  [anuncios]=anuncios></app-header>
+    </article>
+
+    <article style="width: 100%;">
+      <!-- <app-header style="width: 100%;" [categorias]=categorias ></app-header> -->
+      <div class="scrolling-wrapper" fxLayoutAlign="center"  >
+        <div class="card" *ngFor="let categoria of categorias">
+          <button style="padding: 6px 0px;" mat-stroked-button class="mat-card-categorias"   fxLayout="row" fxLayoutAlign="center center" (click)="iniciandoListaAnuncios(categoria.cod)">
             <p class="card-tx-nome" style="font-size: 11px">{{categoria.titulo}}</p>
           </button>
-        </section>
-    </article> -->
-    <!-- <article style="width: 100%;">
-      <div class="scrolling-wrapper">
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
+        </div>
       </div>
-    <app-header style="width: 100%;" [categorias]=categorias ></app-header>
-    </article> -->
-    <!-- <app-header style="width: 100%;" [categorias]=categorias ></app-header> -->
-
-    <!-- .custom-slider-main{
-      display: flex;
-      overflow: hidden;    
-      scroll-behavior: smooth;
-    } -->
-
-    <article
+    </article>    
+    <!-- <article
       fxLayout="row wrap"
       fxLayoutAlign="start center"
       class="container-categorias">
@@ -42,71 +23,21 @@
             <p class="card-tx-nome" style="font-size: 11px">{{categoria.titulo}}</p>
           </button>
         </section>
-    </article>
+    </article> -->
+
+
+    
 
     <article
+      fxFlex="100%"
       fxLayout="row wrap"
       fxLayoutAlign="center"
       class="container-lista"
       style="margin-top: 10px;">
-        <section fxFlex.lt-sm="100%" fxLayoutAlign="space-between start" *ngFor="let anuncio of anuncios">
-            
-          <mat-card [@animaInicCard]="this.categoria" class="mat-card-anuncios" fxLayout="column" fxLayoutAlign="start start">
-            <div style="width: 100%;" fxLayout="row">
-              <!-- <div fxFlex="50%" *ngFor="let img of anuncio.anuncio.img">
-                <div fxFlex="100%" >
-                  <img width='100%' src="{{img}}" alt="Imagem do anuncio">
-                </div>
-              </div> -->
-              <!-- <app-header [title]="'Dashboard de Gestores'" [iconName]="'dashboard'"></app-header> -->
-              <app-carousel style="width: 100%; height: 100%px;" [imgs]=anuncio.conteudo.img ></app-carousel>
-
-              <!-- <div fxFlex="100%" *ngIf="anuncio.conteudo.img">
-
-
-                <div fxLayoutAlign="end" class="badge-img-div">
-                  <p class="badge-img">{{anuncio.conteudo.img.length}}</p>
-                </div>
-
-                <img  width='100%' src="{{anuncio.conteudo.img[anuncio.indexImg]}}" (click)="proximaImagemAnuncio(anuncio)" alt="Imagem do anuncio" >
-              </div> -->
-            </div>
-            
-            <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
-              <p class="card-txt-desc-anunc" style="font-weight: bold;">{{anuncio.conteudo.titulo}}</p>
-
-              <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
-                <p class="card-txt-desc-anunc" style="margin-block-end: 5px;" >{{anuncio.conteudo.descricao}}</p>
-                <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
-                  <p fxFlex="75%" class="card-txt-desc-anunc" style="margin-left: 10px;">{{item.titulo}}</p>
-                  <p fxFlex="25%" fxLayoutAlign="end" class="card-txt-desc-anunc" style="color: brown; font-weight: bold; margin-right: 8px;">{{item.preco  | currency:'BRL':'R$ '}}</p>
-                </div>
-                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.formaPagamento}}</p>
-                <p class="card-txt-desc-anunc" style="margin-top: 5px;">{{anuncio.conteudo.entrega}}</p>
-              </div>
-              <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
-              <p class="card-txt-desc-anunc" class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
-              <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
-                <button  
-                fxLayoutAlign="end end"
-                style="font-size: 16px; margin-top: 5px; margin-block-end: 3px;" 
-                fxLayout="row"
-                mat-raised-button
-                *ngIf="anuncio.companyInformation.whatsApp"
-                (click)="escolhendoAnuncioWhatsApp(anuncio.companyInformation.whatsApp, anuncio.conteudo.titulo)">
-                  <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;" >
-                  Envie uma mensagem
-                </button>
-              </div>
-            </mat-card-content>
-              <!-- avaliacao -->
-              <!-- <div fxFlex="43px" fxLayout="row" fxLayoutAlign="start start" style="color: gold; padding: 10px 10px 0 0;" >
-                  <mat-icon  fxLayoutAlign="start start" style="margin:0px; padding: 0px; font-size: 16px;">star</mat-icon>
-                  <p fxLayoutAlign="start start" style="font-size: 97%; margin: 0px; padding: 0px;">4,6</p>
-              </div> -->
-            </mat-card>
+        <section fxFlex.lt-sm="100%" fxLayoutAlign="start start" *ngFor="let anuncio of anuncios">
+            <app-card-produto [@animaInicCard]="this.categoria" style="width: 100%;"  [anuncio]=anuncio></app-card-produto>
         </section>
     </article>
   </main>
   <app-footer></app-footer>
-</app-layout>
+

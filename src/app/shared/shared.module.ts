@@ -16,8 +16,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { LayoutComponent } from './layout/layout.component';
+// import { CarouselComponent } from '../modules/home/carousel/carousel.component';
+
 import { MatButtonToggleModule } from '@angular/material';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { NgxMaskModule } from 'ngx-mask';
@@ -31,14 +31,18 @@ import {
   MatCarouselModule
 } from '@ngmodule/material-carousel';
 import { FormsModule } from '@angular/forms';
-
-
+import { CarouselModule } from 'primeng/carousel';
+import {ToastModule} from 'primeng/toast';
+import {TabViewModule} from 'primeng/tabview';
+import {CodeHighlighterModule} from 'primeng/codehighlighter';
+import {ButtonModule} from 'primeng/button';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NguCarouselModule } from '@ngu/carousel';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    CarouselComponent,
-    LayoutComponent,
     AlertDialogComponent,
     HeaderComponent
   ],
@@ -51,7 +55,13 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatButtonToggleModule,
     NgxMaskModule,
-    MatCarouselModule.forRoot()
+    CarouselModule,
+    ToastModule,
+    TabViewModule,
+    CodeHighlighterModule,
+    ButtonModule,
+    NguCarouselModule
+
     // MatCarouselSlideComponent,
     // MatCarouselComponent
     // ButtonModule
@@ -61,11 +71,8 @@ import { FormsModule } from '@angular/forms';
     // MatCarouselComponent,
     AngularMaterialModule,
     FlexLayoutModule,
-    // ButtonModule,
     FooterComponent,
-    HeaderComponent,
-    CarouselComponent,
-    LayoutComponent,
+    HeaderComponent
   ],
   entryComponents: [
     AlertDialogComponent

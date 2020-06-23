@@ -1,7 +1,32 @@
-<!-- <carousel fxFlex="100%" fxLayoutAlign="center center" fxLayout="column" class="footer"> -->
+<section *ngIf="imgs" >
+  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="imgs">
+    <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;">
+      <div class="tile" fxLayoutAlign="space-between" [style.background]="'url(' + item + ')'"  style="width: 100%; height: 100%;">
+        <div fxFlex="100%" class="tela-de-rolagem" fxLayoutAlign="space-between">
+          <button fxFlex="10%" mat-button (click)="myCarousel.moveTo(j-1)"><mat-icon>navigate_before</mat-icon></button>
+          <button fxFlex="80%" mat-button (click)="myCarousel.moveTo(j+1)"></button>
+          <button fxFlex="10%" mat-button (click)="myCarousel.moveTo(j+1)"><mat-icon>navigate_next</mat-icon></button>
+        </div>
+
+        <!-- <div fxShow fxLayout="column"  id="btnpedidoflutu" fxLayoutAlign="center center" >
+          <button mat-flat-button  style="font-size: 101%; padding: 4px 16px; font-weight: bold;" [@btnWhatsApp]="true"> 
+            <img src="../../../assets/WhatsApp.png" height="25px" style="margin-right: 5px;">Envie uma mensagem</button>
+        </div> -->
+      </div>
+    </ngu-tile>
+
+    <ul class="myPoint" NguCarouselPoint>
+      <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+    </ul>
+  </ngu-carousel>
+</section>
+
+
+
+<!-- <carousel fxFlex="100%" fxLayoutAlign="center center" fxLayout="column" class="footer">
   <mat-carousel 
   *ngIf="slides"
-  timings="250ms ease-in"
+  timings="200ms ease-in"
   [autoplay]="false"
   interval="5000"
   color="blue"
@@ -21,7 +46,7 @@
     [image]="slide"
     [hideOverlay]="false"
   ></mat-carousel-slide>
-</mat-carousel>
+</mat-carousel> -->
 <!-- </carousel> -->
 
 

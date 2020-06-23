@@ -18,6 +18,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NguCarouselModule } from '@ngu/carousel';
 
 
 
@@ -38,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NguCarouselModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
