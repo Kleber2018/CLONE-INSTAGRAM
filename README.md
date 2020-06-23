@@ -139,6 +139,9 @@ atualizar package e bibliote do projeto:
    
    https://www.primefaces.org/primeng/showcase/#/carousel
 
+    usando 17/05/20
+   https://github.com/uiuniversal/ngu-carousel
+
 
 ## DESIGNER
 

@@ -9,6 +9,14 @@ main {
   max-width: 1300px;
 }
 
+@media screen and (max-width: 599px) {
+
+  .container-lista {
+    width: 100%;
+  }
+}
+
+
 .container-categorias {
   width: 100%;
   margin: 4px 0px;
@@ -20,10 +28,6 @@ p {
 p, span, mat-card-title,button, mat-card-subtitle {
   font-family: 'Nunito', sans-serif;
 }
-// .mat-card:hover {
-//     background: rgb(212, 210, 210);
-//   }
-
 
   //categorias
   .mat-card-categorias {
@@ -38,148 +42,13 @@ p, span, mat-card-title,button, mat-card-subtitle {
   }
 
 
-  //anuncios
-.mat-card-anuncios {
-  margin: 5px 3px;
-  width: 400px;
-  // height: 120px;
-  padding: 10px;
-}
 
-.card-content-desc-anunc{
-  padding: 5px 10px;
-  width: 100%;
-}
-
-.card-txt-desc-anunc {
-  font-size: 16px;
-  opacity: 0.9;
-  padding-top: 2px;
-}
-
-.mais-menos-detalhes{
-  margin: 5px 0px; 
-  opacity: 0.7; 
-  font-size: 97%;
-}
-
-//numero em cima da img
-.badge-img {
-  margin: 10px;
-  padding: 0px 8px;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: black;
-  border-radius: 7px;
-}
-.badge-img-div {
-  width: 100%;
-  position: absolute;
-}
-
-//  #btnpedidoflutu {
-//     z-index: 2;
-//     position: fixed;
-//     bottom:10px;
-//     right:50%;
-//     left: 50%;
-//     margin-block-end: 30px;
-//  }
-
-
-// celular
-@media screen and (max-width: 599px) {
-
-  .mat-card-anuncios {
-    margin: 8px 0px;
-    width: 100%;
-    padding: 0px;
-  }
-
-  .container-lista {
-    width: 100%;
-  }
-
-
-}
-
-@media screen and (min-width: 600px) {
+  // .scrolling-wrapper {
+  //   overflow-x: scroll;
+  //   overflow-y: hidden;
+  //   white-space: nowrap;
   
-  .badge-img-div {
-    padding-right: 18px;;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  
-  main{
-    margin-block-end: 400px;
-  }
-  .carregando{
-    padding-top: 150px; 
-    padding-block-end: 600px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-//PRECISO REFATORAR O CÓDIGO ABAIXO
-
-.img-card-emp {
-  height: 80px;
-  width: 80px;
-}
-
-.img-card-content {
-  height: 100px;
-  width: 100px;
-}
-
-.card-content {
-  margin: 0px;
-  padding: 9px 0px 10px 0px;
-
-}
-
-
-
-.card-tx-tipo {
-  font-size: 14px;
-  opacity: 0.7;
-  padding-top: 2px;
-  padding-block-end: 11px;
-}
-
-.card-tx-desloc {
-  font-size: 14px;
-  opacity: 0.7;
-  margin: 0px;
-}
-
-.txt-fechado {
-  position: absolute;
-  font-size: 19px;
-  padding-top: 35px;
-  padding-left: 12px
-}
-
-
-
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-
-  .card {
-    display: inline-block;
-  }
-}
+  //   .card {
+  //     display: inline-block;
+  //   }
+  // }

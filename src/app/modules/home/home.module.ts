@@ -13,18 +13,24 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
+// import {CarouselModule} from 'primeng/carousel';
 
 
 /**Modules.*/
 import { SharedModule } from 'src/app/shared/shared.module';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { CarouselComponent } from './carousel/carousel.component';
+// import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { CardProdutoComponent } from './card-produto/card-produto.component';
+import { NguCarouselModule } from '@ngu/carousel';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    CarouselComponent,
+    CardProdutoComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +46,14 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     ScrollingModule,
-    MatBadgeModule
+    MatBadgeModule,
+    // MatCarouselModule.forRoot(),
+    // CarouselModule,
+    NguCarouselModule
+  ],
+  exports: [
+    CarouselComponent,
+    CardProdutoComponent
   ]
 })
 export class HomeModule {}

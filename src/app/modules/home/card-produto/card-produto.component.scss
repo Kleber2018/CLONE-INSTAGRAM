@@ -1,0 +1,66 @@
+  p {
+    margin: 0px;
+  }
+  p, span, mat-card-title,button, mat-card-subtitle {
+    font-family: 'Nunito', sans-serif;
+  }  
+  
+  //anuncios
+  .mat-card {
+    margin: 5px 3px;
+    width: 380px;
+    // height: 120px;
+    padding: 10px;
+  }
+
+  .mais-menos-detalhes{
+    margin: 5px 0px; 
+    opacity: 0.6; 
+    font-size: 97%;
+  }
+  
+  
+  .card-content-desc-anunc{
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  .txt-descricao {
+    font-size: 16px;
+    opacity: 0.9;
+    padding-top: 2px;
+  }
+
+  .txt-descricao-item {
+    font-size: 15px;
+    opacity: 0.8;
+    padding-top: 2px;
+    margin-left: 14px;
+  }
+
+  .txt-titulo {
+    font-weight: bold;
+  }
+
+  .txt-nome-empresa {
+    margin: 0px 0px 3px 10px;
+    padding-top: 4px;
+    font-weight: bold;
+  }
+
+  .txt-preco {
+    font-size: 14px;
+    color: brown; 
+    font-weight: bold; 
+    margin-right: 8px;
+    opacity: 0.9;
+  }
+
+  // celular
+@media screen and (max-width: 599px) {
+  .mat-card {
+    margin: 8px 0px;
+    width: 100%;
+    padding: 0px;
+  }
+}
