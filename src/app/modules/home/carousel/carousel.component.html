@@ -1,7 +1,7 @@
 <section *ngIf="imgs" >
   <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="imgs">
     <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;">
-      <div class="tile" fxLayoutAlign="space-between" [style.background]="'url(' + item + ')'"  style="width: 100%; height: 100%;">
+      <div class="tile" fxLayoutAlign="space-between" [style.background]="'url(' + item + ')'" >
         <div fxFlex="100%" class="tela-de-rolagem" fxLayoutAlign="space-between">
           <button fxFlex="10%" mat-button (click)="myCarousel.moveTo(j-1)"><mat-icon>navigate_before</mat-icon></button>
           <button fxFlex="80%" mat-button (click)="myCarousel.moveTo(j+1)"></button>

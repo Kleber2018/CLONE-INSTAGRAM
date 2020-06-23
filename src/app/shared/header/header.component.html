@@ -9,9 +9,9 @@
 
 
 
-  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="padding: 10px">
-    <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 0px;">
-      <div class="tile" [style.background]="'url(' + item + ')'" (click)="clicandoStory(item)" >
+  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="padding: 4px">
+    <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 4px;">
+      <div class="tile" [style.background]="'url(' + item + ')'" (click)="clicandoStory(item)">
         <!-- <img src="{{item}}" alt="descricao" width="100%"> -->
       </div>
     </ngu-tile>

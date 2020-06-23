@@ -19,7 +19,7 @@
 // }
 
 
-.tile {
+.tile2 {
   // height: 100vmin;
   padding: 10px;
    height: 50px;
@@ -32,11 +32,13 @@
 
 
 .tile {
-  min-height: 200px;
-  background-color: #ccc;
+  //border-radius: 16px;
+  height: 56px;
+ // width: 56px;
+  //background-color:aqua;
   background-size: cover !important;
   display: flex;
-  align-items: center;
+ align-items: center;
   justify-content: center;
 }
 
@@ -49,18 +51,27 @@
   margin-top: -20px;
   white-space: nowrap;
   overflow: auto;
-  box-sizing: border-box;
+  //box-sizing: border-box;
 }
 .myPoint  li {
     display: inline-block;
     border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.55);
+    //border: 2px solid rgba(0, 0, 0, 0.55);
     padding: 4px;
     margin: 0 3px;
     transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
     transition: 0.4s;
 }
 .myPoint  li.active {
-      background: #6b6b6b;
+    //  background: #6b6b6b;
       transform: scale(1.2);
+    }
+
+
+
+    @media screen and (min-width: 599px) {
+      .tile {
+        //border-radius: 16px;
+        height: 80px;
+      }
     }
