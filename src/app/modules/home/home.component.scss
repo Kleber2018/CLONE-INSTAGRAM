@@ -1,25 +1,24 @@
 main {
-  width: 100%;
+	width: calc(100vw - 20px);
   min-height: calc(100vh - 102px);
   background-color: rgba(231, 192, 133, 0.247);
-  // background-color: #177649;
 }
 
-.container-lista {
+article {
   max-width: 1300px;
 }
 
+
+
+
 @media screen and (max-width: 599px) {
+  main {
+    width: 100vw;
+  }
 
   .container-lista {
     width: 100%;
   }
-}
-
-
-.container-categorias {
-  width: 100%;
-  margin: 4px 0px;
 }
 
 p {

@@ -1,10 +1,10 @@
   <main fxLayout="column"  fxLayoutAlign="start center">
 
-    <article style="width: 100%; max-width: 900px;" *ngIf="anuncios" fxFlexAlign="center">
+    <article *ngIf="anuncios" fxFlexAlign="center" >
       <app-header  [anuncios]=anuncios></app-header>
     </article>
 
-    <article style="width: 100%;">
+    <article *ngIf="anuncios">
       <!-- <app-header style="width: 100%;" [categorias]=categorias ></app-header> -->
       <div class="scrolling-wrapper" fxLayoutAlign="center"  >
         <div class="card" *ngFor="let categoria of categorias">
@@ -30,12 +30,12 @@
 
     <article
       fxFlex="100%"
-      fxLayout="row wrap"
+      fxLayout.gt-xs="row wrap"
+      fxLayout.lt-sm="column"
       fxLayoutAlign="center"
-      class="container-lista"
-      style="margin-top: 10px;">
-        <section fxFlex.lt-sm="100%" fxLayoutAlign="start start" *ngFor="let anuncio of anuncios">
-            <app-card-produto [@animaInicCard]="this.categoria" style="width: 100%;"  [anuncio]=anuncio></app-card-produto>
+      class="container-lista">
+        <section  fxLayoutAlign="start start" *ngFor="let anuncio of anuncios">
+            <app-card-produto [@animaInicCard]="this.categoria" [anuncio]=anuncio></app-card-produto>
         </section>
     </article>
   </main>

@@ -1,7 +1,7 @@
 <mat-card class="mat-card" fxLayout="column" fxLayoutAlign="start start" *ngIf="anuncio">
   <p class="txt-nome-empresa txt-descricao">{{anuncio.companyInformation.empresaNome}}</p>
 
-  <mat-card-content *ngIf="anuncio.conteudo.img" style="width: 100%;">
+  <mat-card-content *ngIf="anuncio.conteudo.img" class="card-carousel" >
     <app-carousel  [imgs]=anuncio.conteudo.img ></app-carousel>
   </mat-card-content>
 
@@ -9,10 +9,10 @@
   <mat-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start start" class="card-content-desc-anunc" >
     <p class="txt-titulo txt-descricao ">{{anuncio.conteudo.titulo}}</p>
 
-    <div fxFlex="100%" style="width: 100%;"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
+    <div fxFlex="100%"  fxLayout="column" fxLayoutAlign="end" *ngIf="anuncio.ocultardetalhes">
       <p class="txt-descricao" style="margin-block-end: 12px;" >{{anuncio.conteudo.descricao}}</p>
 
-      <div fxFlex="100%" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
+      <div fxFlex="100%"  fxLayout="row" fxLayoutAlign="space-between start" *ngFor="let item of anuncio.itens">
 
         <p fxFlex="75%" class="txt-descricao-item">{{item.titulo}}</p>
         <p fxFlex="25%" fxLayoutAlign="end" class="txt-preco">{{item.preco  | currency:'BRL':'R$ '}}</p>
@@ -23,7 +23,7 @@
     </div>
     <p class="mais-menos-detalhes" *ngIf="!anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = true;">+ Mais detalhes</p>
     <p class="mais-menos-detalhes" *ngIf="anuncio.ocultardetalhes" (click)="anuncio.ocultardetalhes = false;">- Menos detalhes</p>
-    <div fxFlex="100%" style="width: 100%;" fxLayoutAlign="end end" >
+    <div fxFlex="100%" fxLayoutAlign="end end" >
       <button  
       fxLayoutAlign="end end"
       style="font-size: 16px; margin-top: 5px; margin-block-end: 3px;" 

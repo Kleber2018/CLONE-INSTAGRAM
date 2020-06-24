@@ -35,6 +35,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     point: { visible: false,  hideOnSingleSlide: false }	
   };
 
+  stories2 = ["Story_1", "Story_2", "Story_3","Story_4", "Story_5", "Story_6", "Story_7", "Story_8", "Story_9","Story_10"]
+
   public stories = [
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/PoyzstGt3XVqX6yfHFHY%2F1590109204843?alt=media&token=09dcfd1a-df45-4696-b02f-c98af1a7eb39',
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/192x192.png?alt=media&token=02d48530-9b5f-4446-bbfa-88b796db5cd1',
@@ -95,6 +97,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
      console.log(item)
     this.router.navigate(['/story', 'teste']);
    }
+
+   
 
   ngOnDestroy(): void {
     this.end.next();

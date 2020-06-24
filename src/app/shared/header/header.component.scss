@@ -1,77 +1,70 @@
-// .container {
-//   max-width: 40%;
-//   margin: 0 auto;
-// }
-// .ui-carousel-page-links {
-//   display: none;
-// }
-// button {
-//   width: 80%;
-// }
-// .mat-card-actions, .mat-card-content, .mat-card-title {
-//   margin-bottom: 0px;
-// }
-// body .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {
-//   border: 0 !important;
-// }
-// body .ui-carousel .ui-carousel-viewport {
-//   border: 0;
-// }
+
+.data {
+  margin-top: 10px;
+	display: block;
+	width: calc(100vw - 20px);
+	max-width: 1300px;
+  //max-height: 500px;
+	overflow: auto;
 
 
-.tile2 {
-  // height: 100vmin;
-  padding: 10px;
-   height: 50px;
-  // background-color: #ccc;
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+	.container {
+		padding-left: 2px;
+		padding-right: 8px;
+		text-align: center;
+	}
 
+	/*
+  //container
+  .table {
+		width: 100vw;
+		max-width: 100%;
+		// overflow: auto;
+	//	margin-bottom: 10px;
+		display: table;
+		border-collapse: collapse;
+		margin: 0px;
+		background-color: rgb(238, 238, 238);
+	}
+  */
+	
 
-.tile {
-  //border-radius: 16px;
-  height: 56px;
- // width: 56px;
-  //background-color:aqua;
-  background-size: cover !important;
-  display: flex;
- align-items: center;
-  justify-content: center;
-}
-
-
-.myPoint {
-  list-style-type: none;
-  text-align: center;
-  padding: 0px;
-  margin: 0;
-  margin-top: -20px;
-  white-space: nowrap;
-  overflow: auto;
-  //box-sizing: border-box;
-}
-.myPoint  li {
-    display: inline-block;
-    border-radius: 50%;
-    //border: 2px solid rgba(0, 0, 0, 0.55);
+	.cell{
+		word-wrap: initial;
+		display: table-cell;
     padding: 4px;
-    margin: 0 3px;
-    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    transition: 0.4s;
+		line-break: unset;
+		width: fit-content;
+		white-space: nowrap;
+		overflow: hidden;
+		vertical-align: middle;
+		text-align: center;
+    margin: 4px;
+	}
+
 }
-.myPoint  li.active {
-    //  background: #6b6b6b;
-      transform: scale(1.2);
-    }
 
+.story_titulo{
+  margin: 0px;
+  font-size: 13px;
+}
 
+.avatar {
+  margin: 0px;
+  padding: 2px;
+  border-radius: 34px;
+  border-bottom-color: red;
+  border-block-start-color: blue;
+  border-right-color: green;
+  border-left-color: yellow;
+  border-style: inset;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  border-width: 2px;
+}
 
-    @media screen and (min-width: 599px) {
-      .tile {
-        //border-radius: 16px;
-        height: 80px;
-      }
-    }
+//.mat-card {
+//	min-width: fit-content !important;
+//	max-width: fit-content !important;
+//}

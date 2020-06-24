@@ -57,10 +57,19 @@
   }
 
   // celular
+
+
+  .card-carousel{
+    width: 100%;
+  }
+
 @media screen and (max-width: 599px) {
   .mat-card {
     margin: 8px 0px;
-    width: 100%;
+    width: 100vw;
     padding: 0px;
+  }
+  .card-carousel{
+    width: 100%;
   }
 }

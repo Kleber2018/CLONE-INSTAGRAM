@@ -8,21 +8,14 @@
   </section> -->
 
 
-
-  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="stories" style="padding: 4px">
-    <ngu-tile *nguCarouselDef="let item; let j = index" style="padding: 4px;">
-      <div class="tile" [style.background]="'url(' + item + ')'" (click)="clicandoStory(item)">
-        <!-- <img src="{{item}}" alt="descricao" width="100%"> -->
+  <div class="data">
+    <div class="container">
+      <div *ngFor="let story of stories2;" class="cell" >
+              <img class="avatar" src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/null%2F1590108179241?alt=media&token=a7e40257-bea5-4400-8b8e-0183470a99e1" alt="{{story}}" width="56" height="56" (click)="clicandoStory(story)">
+              <p class="story_titulo">{{story}}</p>
       </div>
-    </ngu-tile>
-
-    <!-- <ul class="myPoint" NguCarouselPoint>
-      <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
-    </ul> -->
-  </ngu-carousel>
-
-
-
+    </div>
+  </div>
 <!-- <p-carousel [numVisible]="2" [numScroll]="3" [circular]="false" >
   <div ngf>
 
