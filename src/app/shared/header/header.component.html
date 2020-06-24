@@ -1,4 +1,4 @@
-<section *ngIf="stories"  >
+<section *ngIf="stories2"  >
   <!-- <section>
     <p-carousel [value]="stories" [numVisible]="3"  [circular]="true" [responsiveOptions]="responsiveOptions">
       <ng-template let-anuncio pTemplate="item">
@@ -11,7 +11,11 @@
   <div class="data">
     <div class="container">
       <div *ngFor="let story of stories2;" class="cell" >
-              <img class="avatar" src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/null%2F1590108179241?alt=media&token=a7e40257-bea5-4400-8b8e-0183470a99e1" alt="{{story}}" width="56" height="56" (click)="clicandoStory(story)">
+              <img class="avatar" 
+                src="https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/null%2F1590108179241?alt=media&token=a7e40257-bea5-4400-8b8e-0183470a99e1" 
+                alt="{{story}}" width="56" height="56" 
+                [@animaAcessaStory]="acessandoStory"
+                (click)="clicandoStory(story)">
               <p class="story_titulo">{{story}}</p>
       </div>
     </div>

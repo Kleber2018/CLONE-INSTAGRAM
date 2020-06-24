@@ -4,13 +4,27 @@ import { Subject } from 'rxjs';
 import { Anuncio } from './../../modules/home/anuncio.model'
 import { NguCarouselConfig } from '@ngu/carousel';
 import { Router } from '@angular/router';
-
+import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('animaAcessaStory',[
+      transition('* => *', [
+        animate('2s', 
+          keyframes([
+            style({ transform: 'scale(1.1)' }),
+            style({ backgroundColor: 'orange', transform: 'scale(1.2)'}),
+            style({ backgroundColor: 'orange', transform: 'scale(1.2)'}),
+            style({ transform: 'scale(1.1)' }),
+            style({ transform: 'scale(1)' })
+        ]),
+      )]),
+    ])
+  ]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
@@ -24,7 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   ]
 
-
+/*
   public carouselConfig: NguCarouselConfig = {
     grid: { xs: 5, sm: 8, md: 10, lg: 14, all: 0 },
     load: 3,
@@ -35,9 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     point: { visible: false,  hideOnSingleSlide: false }	
   };
 
-  stories2 = ["Story_1", "Story_2", "Story_3","Story_4", "Story_5", "Story_6", "Story_7", "Story_8", "Story_9","Story_10"]
-
-  public stories = [
+    public stories = [
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/PoyzstGt3XVqX6yfHFHY%2F1590109204843?alt=media&token=09dcfd1a-df45-4696-b02f-c98af1a7eb39',
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/192x192.png?alt=media&token=02d48530-9b5f-4446-bbfa-88b796db5cd1',
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/512x512.png?alt=media&token=38c33209-daf0-47d8-8673-ce164303c276',
@@ -47,9 +59,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/512x512.png?alt=media&token=38c33209-daf0-47d8-8673-ce164303c276',
     'https://firebasestorage.googleapis.com/v0/b/bairrofeliz103.appspot.com/o/categorias-generica-bairrofeliz.jpg?alt=media&token=f82f09f4-488c-4437-bd6c-5b10ef93a2de'
   ] 
+
+*/
+  stories2 = ["Story_1", "Story_2", "Story_3","Story_4", "Story_5", "Story_6", "Story_7", "Story_8", "Story_9","Story_10"]
+
+
   @Input() public anuncios: Anuncio[];
 
   constructor( private router: Router ) {}
+  public acessandoStory: boolean =  true;
 
 
   ngOnInit(): void {
@@ -60,6 +78,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     console.log('header depois', this.anuncios);
 
     //criando variavel para imagens
+    /*
     this.anuncios.forEach(anuncio => {
       if(this.empresas){
         var naoEncontrado = true
@@ -84,7 +103,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }]
       }
     });
-
+    */
     console.log(this.empresas);
 
    }
@@ -94,6 +113,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    }
 
    clicandoStory(item: any){
+
      console.log(item)
     this.router.navigate(['/story', 'teste']);
    }
